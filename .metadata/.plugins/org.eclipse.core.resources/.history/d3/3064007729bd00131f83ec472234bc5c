@@ -1,0 +1,132 @@
+package net.lsrp.kingdom.input;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.util.ArrayList;
+import java.util.List;
+
+import net.lsrp.kingdom.Game;
+import net.lsrp.kingdom.network.Network.ChatMessage;
+
+public class Chat {
+
+	private static String myMessage = "";
+	public static List<ChatMessage> chat = new ArrayList<ChatMessage>();
+	private static int tlc = Game.getWindowHeight() - (Game.getWindowHeight() / 3) - 40; //Top left corner - long calculation ...
+	private static int cursorTime = 0; 
+	private static final int CHAT_SIZE = 12;
+	
+	private static boolean typing = false;
+	private static boolean timestamp = false;
+	
+	public static void type() {
+		typing = true;
+	}
+	
+	public static void endTyping() {
+		typing = false;
+	}
+	
+	public static boolean isTyping() {
+		return typing;
+	}
+	
+	public static void update() {
+		if(isTyping())
+			cursorTime++;
+	}
+	
+	public static void render(Graphics g) {
+		g.setColor(new Color(0, 0, 0, 70));
+		g.fillRect(10, tlc, Game.getWindowWidth() / 2 + (Game.getWindowWidth() / 4) , Game.getWindowHeight() / 3 + 10);
+		g.setColor(new Color(255, 255, 255));
+		g.setFont(new Font("Tahoma", Font.BOLD, 11));
+		for(int i = 0; i < chat.size(); i++) {
+			System.out.println("debug1");
+			if(i > chat.size() - CHAT_SIZE) {
+				System.out.println("debug2");
+				if(chat.get(i) != null) {
+					System.out.println("debug3");
+					if(chat.get(i).message != "") {
+						System.out.println("debug4");
+						if(timestamp) { 
+							g.drawString(chat.get(i).message, 20, Game.getWindowHeight() - 37 + 15 + (15 * (i - chat.size())));
+							System.out.println("debug5");
+						} else {
+							g.drawString(chat.get(i).authorName + " (" + chat.get(i).id + "): " + chat.get(i).message, 20, Game.getWindowHeight() - 37 + 15 + (15 * (i - chat.size())));
+							System.out.println("debug6");
+						}
+					}
+				}
+			}
+		}
+		
+		if(isTyping()) {
+			g.setColor(new Color(0, 0, 0, 100));
+			g.fillRect(10, Game.getWindowHeight() - 25, Game.getWindowWidth() / 2 + (Game.getWindowWidth() / 4), 20);
+			g.setColor(new Color(255, 255, 255, 255));
+			if(myMessage != null)
+				if(cursorTime < 30)
+					g.drawString(myMessage + "|", 20, Game.getWindowHeight() - 10);
+				else {
+					g.drawString(myMessage, 20, Game.getWindowHeight() - 10);
+					if(cursorTime > 60)
+						cursorTime = 0;
+				}
+		}
+	}
+	
+	public static void addChar(char c) {
+		if(isTyping())
+			if(getChatLength() < 100) 
+				myMessage += c;
+	}
+	
+	public static void deleteChar() {
+		if(getChatLength() > 0)
+			myMessage = myMessage.substring(0, myMessage.length() - 1);
+	}
+	
+	public static void send() {
+		
+		if(myMessage.length() > 0) {
+			if(myMessage.charAt(0) == '/') {
+				String cmd = myMessage.substring(1);
+				System.out.println(cmd);
+				if(cmd.equals("q")) {
+					System.exit(0);
+				} else if(cmd.equals("timestamp")) {
+					timestamp = !timestamp;
+				} else if(cmd.equals("help")) {
+					chat.add(new ChatMessage(-1, (int)(System.currentTimeMillis() / 1000), "Commands: /q, /timestamp, /help", "Info"));
+				}
+				myMessage = "";
+				endTyping();
+			} else {
+				myMessage = myMessage.substring(0, 1).toUpperCase() + myMessage.substring(1);
+				char lastChar = myMessage.charAt(myMessage.length() - 1);
+				if(lastChar != '.' && lastChar != '?' && lastChar != '!') {
+					myMessage += '.';
+				}
+				//Game.client.myMsg = new ChatMessage(myMessage, Game.id, Game.username);
+				addToChat(new ChatMessage(Game.id, (int)(System.currentTimeMillis()/1000), myMessage, Game.username));
+				myMessage = "";
+				endTyping();
+			}
+		} else {
+			endTyping();
+		}
+	}
+	
+	public static void addToChat(ChatMessage msg) {
+		chat.add(msg);
+	}
+	
+	public static int getChatLength() {
+		if(myMessage != null) 
+			return myMessage.length();
+		else
+			return 0;
+	}
+}
