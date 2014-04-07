@@ -30,7 +30,6 @@ public class KryoClient {
 	public static int PORT = -1;
 	
 	public KryoClient() {
-		clientmsg = new ChatMessage();
 		clientmsg.id = -1;
 		clientmsg.authorName = "Client";
 		clientmsg.timestamp = (int)(System.currentTimeMillis()/1000);
