@@ -3,7 +3,10 @@ package net.lsrp.kingdom.input;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import net.lsrp.kingdom.Game;
@@ -47,10 +50,19 @@ public class Chat {
 			if(i > chat.size() - CHAT_SIZE) {
 				if(chat.get(i) != null) {
 					if(chat.get(i).message != "") {
-						if(timestamp) 
-							g.drawString(chat.get(i).message, 20, Game.getWindowHeight() - 37 + 15 + (15 * (i - chat.size())));
-						else
-							g.drawString(chat.get(i).authorName + " (" + chat.get(i).id + "): " + chat.get(i).message, 20, Game.getWindowHeight() - 37 + 15 + (15 * (i - chat.size())));
+						DateFormat dateFormat = new SimpleDateFormat("[HH:mm:ss] ");
+						String _cAuthor = chat.get(i).authorName + " (" + chat.get(i).id + "): ";
+						String _cTime = dateFormat.format(new Date(chat.get(i).timestamp));
+						String _cMessage = chat.get(i).message; 
+						String _cOutput = "";
+						
+						if(!timestamp)
+							_cOutput += _cTime;
+						if(chat.get(i).id != -1)
+							_cOutput += _cAuthor;
+						_cOutput += _cMessage;
+						
+						g.drawString(_cOutput, 20, Game.getWindowHeight() - 37 + 15 + (15 * (i - chat.size())));
 					}
 				}
 			}
@@ -95,7 +107,7 @@ public class Chat {
 				} else if(cmd.equals("help")) {
 					ChatMessage chatmsg = new ChatMessage();
 					chatmsg.id = -1;
-					chatmsg.timestamp = (int)(System.currentTimeMillis()/1000);
+					chatmsg.timestamp = System.currentTimeMillis();
 					chatmsg.message = "Commands: /q, /timestamp, /help";
 					chatmsg.authorName = "Info";
 					chat.add(chatmsg);
@@ -112,7 +124,7 @@ public class Chat {
 				
 				ChatMessage chatmsg = new ChatMessage();
 				chatmsg.id = Game.id;
-				chatmsg.timestamp = (int)(System.currentTimeMillis()/1000);
+				chatmsg.timestamp = System.currentTimeMillis();
 				chatmsg.message = myMessage;
 				chatmsg.authorName = Game.username;
 				

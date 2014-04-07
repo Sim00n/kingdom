@@ -6,7 +6,11 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashSet;
+import java.util.Iterator;
 
 import net.lsrp.kingdom.network.Network.AddCharacter;
 import net.lsrp.kingdom.network.Network.ChatMessage;
@@ -15,6 +19,7 @@ import net.lsrp.kingdom.network.Network.Login;
 import net.lsrp.kingdom.network.Network.MoveCharacter;
 import net.lsrp.kingdom.network.Network.Register;
 import net.lsrp.kingdom.network.Network.RegistrationRequired;
+import net.lsrp.kingdom.network.Network.RemoveCharacter;
 import net.lsrp.kingdom.network.Network.UpdateCharacter;
 
 import com.esotericsoftware.kryonet.Connection;
@@ -42,6 +47,7 @@ public class KryoServer {
 			@Override
 			public void received(Connection c, Object object) {
 				CharacterConnection connection = (CharacterConnection)c;
+				connection.cHandle = connection;
 				KryoCharacter character = connection.character;
 				
 				if(object instanceof Login) {
@@ -49,12 +55,14 @@ public class KryoServer {
 				
 					String name = ((Login)object).name;
 					if(!isValid(name)) {
+						log("[error] Invalid name connection. Name: " + name);
 						c.close();
 						return;
 					}
 					
 					for(KryoCharacter other : loggedIn) {
 						if(other.name.equals(name)) {
+							log("[error] Double login connection. Name: " + name);
 							disconnectCharacter(name);
 							c.close();
 							return;
@@ -64,15 +72,18 @@ public class KryoServer {
 					character = loadCharacter(name);
 					
 					if(character == null) {
+						log("[info] Registration required. Name: " + name);
 						c.sendUDP(new RegistrationRequired());
 						return;
 					}
 					
 					loggedIn(connection, character);
 					ConnectionEstablished conne = new ConnectionEstablished();
-					conne.motd = "Testowy string motd";
+					conne.motd = "Wiadomoœæ powitalna z serwera.";
 					conne.id = character.id;
-					c.sendUDP(conne);
+					c.sendTCP(conne);
+					
+					log("[join] " + name + " has connected to the server.");
 							
 					return;
 				}
@@ -84,11 +95,13 @@ public class KryoServer {
 					Register register = (Register)object;
 					
 					if(!isValid(register.name)) {
+						log("[error] Trying to register invalid name. Name: " + register.name);
 						c.close();
 						return;
 					}
 					
 					if(loadCharacter(register.name) != null) {
+						log("[error] Trying to register a name that already exists. Name: " + register.name);
 						c.close();
 						return;
 					}
@@ -100,11 +113,13 @@ public class KryoServer {
 					character.dx = 0;
 					character.dy = 0;
 					if(!saveCharacter(character)) {
+						log("[error] Unable to save character. Internal error!!! Name: " + character.name);
 						c.close();
 						return;
 					}
 					
 					loggedIn(connection, character);
+					log("[join] " + character.name + " has connected after registration.");
 					return;
 				}
 				
@@ -137,6 +152,8 @@ public class KryoServer {
 					
 					ChatMessage chat = (ChatMessage)object;
 					server.sendToAllTCP(chat);
+					
+					log("[msg] " + chat.authorName + ": " + chat.message);
 					return;
 				}
 			}
@@ -150,7 +167,14 @@ public class KryoServer {
 			
 			@Override
 			public void disconnected(Connection c) {
-				
+				CharacterConnection connection = (CharacterConnection)c;
+				if(connection.character != null) {
+					RemoveCharacter rmc = new RemoveCharacter();
+					rmc.id = connection.character.id;
+					server.sendToAllTCP(rmc);
+					disconnectCharacter(connection.character.name);
+					log("[part] " + connection.character.name + " has disconnected from the server.");
+				}
 			}
 		});
 		
@@ -159,7 +183,7 @@ public class KryoServer {
 		server.start();
 	}
 	
-	void loggedIn(CharacterConnection c, KryoCharacter character) {
+	public void loggedIn(CharacterConnection c, KryoCharacter character) {
 		c.character = character;
 		
 		for(KryoCharacter other : loggedIn) {
@@ -175,15 +199,16 @@ public class KryoServer {
 		server.sendToAllUDP(addCharacter);
 	}
 	
-	void disconnectCharacter(String name) {
-		for(KryoCharacter other : loggedIn) {
-			if(other.name.equals(name)) {
-				loggedIn.remove(other);
+	public void disconnectCharacter(String name) {
+		Iterator<KryoCharacter> iter = loggedIn.iterator();
+		while(iter.hasNext()) {
+			if(iter.next().name.equals(name)) {
+				iter.remove();
 			}
 		}
 	}
 	
-	boolean saveCharacter(KryoCharacter character) {
+	public boolean saveCharacter(KryoCharacter character) {
 		File file = new File("characters", character.name.toLowerCase());
 		file.getParentFile().mkdirs();
 		
@@ -212,7 +237,12 @@ public class KryoServer {
 		}
 	}
 	
-	KryoCharacter loadCharacter(String name) {
+	public static void log(String line) {
+		DateFormat date = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+		System.out.println("["+date.format(new Date())+"] " + line);
+	}
+	
+	public KryoCharacter loadCharacter(String name) {
 		File file = new File("characters", name.toLowerCase());
 		if(!file.exists()) return null;
 		DataInputStream input = null;
@@ -239,11 +269,12 @@ public class KryoServer {
 
 	public static class CharacterConnection extends Connection {
 		public KryoCharacter character;
+		public Connection cHandle;
 	}
 	
 	public static void main(String[] args) throws IOException {
 		Log.set(Log.LEVEL_DEBUG);
 		new KryoServer();
-		System.out.println("Main wystartowa³");
+		log("Server has been started");
 	}
 }

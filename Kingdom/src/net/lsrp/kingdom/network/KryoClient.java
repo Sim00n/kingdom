@@ -24,17 +24,11 @@ public class KryoClient {
 	public Client client;
 	public static ChatMessage chatmsg = null; 
 	Login login = new Login();
-	private ChatMessage clientmsg;
-	
+
 	public static String IP = "";
 	public static int PORT = -1;
 	
 	public KryoClient() {
-		clientmsg = new ChatMessage();
-		clientmsg.id = -1;
-		clientmsg.authorName = "Client";
-		clientmsg.timestamp = (int)(System.currentTimeMillis()/1000);
-		clientmsg.message = "None";
 		
 		client = new Client();
 		client.start();
@@ -57,8 +51,11 @@ public class KryoClient {
 				
 				if(object instanceof AddCharacter) {
 					AddCharacter msg = (AddCharacter)object;
-					if(!msg.character.name.equals(Game.username))
+					if(!msg.character.name.equals(Game.username)) {
 						Game.AddEnemy(msg.character);
+						
+						Chat.addToChat(createChatMessage(msg.character.name + " has connected to the game."));
+					}
 					return;
 				}
 				
@@ -78,10 +75,8 @@ public class KryoClient {
 					login.id = conne.id;
 					Game.id = login.id;
 					
-					clientmsg.message = "Connected to " + KryoClient.IP + ":" + KryoClient.PORT + ".";
-					Chat.addToChat(clientmsg);
-					clientmsg.message = "MOTD: " + conne.motd;
-					Chat.addToChat(clientmsg);
+					Chat.addToChat(createChatMessage("Connected to " + KryoClient.IP + ":" + KryoClient.PORT + "."));
+					Chat.addToChat(createChatMessage("MOTD: " + conne.motd));
 					
 					return;
 				}
@@ -100,21 +95,20 @@ public class KryoClient {
 		}));
 		
 		try {
-			clientmsg.message = "Connecting to " + KryoClient.IP + ":" + KryoClient.PORT + " ...";
-			Chat.addToChat(clientmsg);
+			Chat.addToChat(createChatMessage("Connecting to " + KryoClient.IP + ":" + KryoClient.PORT + " ..."));
 			
 			client.connect(5000, KryoClient.IP, KryoClient.PORT, KryoClient.PORT);
 			System.out.println(KryoClient.PORT);
 		} catch (IOException e) {
 			e.printStackTrace();
 			try {
-				clientmsg.message = "No server found at " + KryoClient.IP + ":" + KryoClient.PORT + "! Starting a local server.";
-				Chat.addToChat(clientmsg);
+				KryoClient.IP = "127.0.0.1";
+				KryoClient.PORT = 54555;
+				Chat.addToChat(createChatMessage("No server found at " + KryoClient.IP + ":" + KryoClient.PORT + "! Starting a local server."));
 				
 				new KryoServer();
 				
-				clientmsg.message = "Connecting to " + KryoClient.IP + ":" + KryoClient.PORT + " ...";
-				Chat.addToChat(clientmsg);
+				Chat.addToChat(createChatMessage("Connecting to " + KryoClient.IP + ":" + KryoClient.PORT + " ..."));
 				
 				client.connect(5000, KryoClient.IP, KryoClient.PORT, KryoClient.PORT);
 			} catch (IOException e1) {
@@ -180,5 +174,14 @@ public class KryoClient {
 			}
 		};
 		ct.start();
-	}	
+	}
+	
+	public ChatMessage createChatMessage(String message) {
+		ChatMessage cm = new ChatMessage();
+		cm.authorName = "Client";
+		cm.id = -1;
+		cm.timestamp = System.currentTimeMillis();
+		cm.message = message;
+		return cm;
+	}
 }

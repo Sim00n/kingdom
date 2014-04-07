@@ -1,5 +1,6 @@
 package net.lsrp.kingdom.network;
 
+
 public class KryoCharacter {
 
 	public String name;
