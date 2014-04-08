@@ -2,6 +2,7 @@ package net.lsrp.kingdom.graphics;
 
 import java.util.Random;
 
+import net.lsrp.kingdom.entity.mob.Mob;
 import net.lsrp.kingdom.entity.projectile.Projectile;
 import net.lsrp.kingdom.level.tile.Tile;
 
@@ -92,6 +93,27 @@ public class Screen {
 				int col = sprite.pixels[xs + ys * 32];
 				if(col != 0xFFFF00FF)
 					pixels[xa + ya * width] = col;
+			}
+		}		
+	}
+	
+	public void renderPlayerTag(Mob player) {
+		int xp = player.x - xOffset - 10;
+		int yp = player.y - yOffset - 20;
+		
+		for(int y = 0; y < 2; y++) {
+			int ya = y + yp;
+			
+			for(int x = 0; x < 20; x++) {
+				int xa = x + xp;
+				
+				if(xa < -32 || xa >= width || ya < 0 || ya >= height) break;
+				if(xa < 0) xa = 0; 
+				
+				pixels[xa + ya * width] = 0x00FF0055;
+				
+				if(player.getHealth() / 5.0 > x)
+					pixels[xa + ya * width] = 0xFF00FF00;
 			}
 		}		
 	}

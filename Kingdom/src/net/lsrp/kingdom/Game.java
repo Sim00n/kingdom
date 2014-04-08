@@ -243,6 +243,16 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Frames: " + hud_frames + " | Ticks: " + hud_ticks, 10, 40);
 		g.drawString("Tiles: " + level.getTiles().length, 10, 60);
 		
+		g.drawString("name", player.x - screen.xOffset + 280, player.y - screen.yOffset + 90);
+		for(Enemy enemy : enemies) {
+			//g.drawString("enemy", enemy.x - screen.xOffset - (player.x - enemy.x) + 280, enemy.y - screen.yOffset - (player.y - enemy.y) - 90);
+			
+			int nx = (player.x - screen.xOffset + 270) - (player.x - enemy.x);
+			int ny = (player.y - screen.yOffset + 90) - (player.y - enemy.y)*2;
+			g.drawString("P: " + player.y + " | E: " + enemy.y, 10, 100);
+			g.drawString("enemy", nx, ny);
+		}
+		
 		if(key.tab || key.tab2) {
 			g.setColor(new Color(39, 38, 46, 70));
 			g.fillRect(getWidth() - 170 , 10, 150, 200);

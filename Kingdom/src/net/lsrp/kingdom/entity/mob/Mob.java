@@ -11,6 +11,8 @@ public abstract class Mob extends Entity {
 	private Sprite sprite;
 	public int dir = 0;
 	protected boolean moving = false;
+	private double health = 100.0;
+	private String name = "Mob";
 	
 	public void move(int xa, int ya) {
 		if(xa != 0 && ya != 0) {
@@ -46,11 +48,32 @@ public abstract class Mob extends Entity {
 		for(int c = 0; c < 4; c++) {
 			int xt = ((x + xa) + c % 2 * 14 - 8) >> 4;
 			int xy = ((y + ya) + c / 2 * 12 + 3) >> 4;
-			if(level.getTile(xt, xy).solid()) solid = true;
+			if(level.getTile(xt, xy).solid()) {
+				solid = true;
+				health = health -1;
+				if(health < 0)
+					health = 0;
+			}
 		}
 		return solid;
 	}
 	
 	public void render() {
+	}
+	
+	public double getHealth() {
+		return health;
+	}
+
+	public void setHealth(double health) {
+		this.health = health;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 }
