@@ -17,7 +17,6 @@ public class KingdomNetwork {
 		kryo.register(UpdateCharacter.class);
 		kryo.register(RemoveCharacter.class);
 		kryo.register(KingdomCharacter.class);
-		kryo.register(MoveCharacter.class);
 		kryo.register(ChatMessage.class);
 		kryo.register(ProjectileMessage.class);
 	}
@@ -43,6 +42,7 @@ public class KingdomNetwork {
 	
 	public static class UpdateCharacter {
 		public int id, x, y, dx, dy;
+		public double health;
 	}
 	
 	public static class AddCharacter {
@@ -51,10 +51,6 @@ public class KingdomNetwork {
 	
 	public static class RemoveCharacter {
 		public int id;
-	}
-	
-	public static class MoveCharacter {
-		public int id, x, y, dx, dy;
 	}
 	
 	public static class ChatMessage {
@@ -67,6 +63,6 @@ public class KingdomNetwork {
 	public static class ProjectileMessage {
 		public double x, y;
 		public double angle;
-		public int type;
+		public int type, originator;
 	}
 }

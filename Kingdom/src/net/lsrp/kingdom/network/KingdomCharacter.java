@@ -5,4 +5,5 @@ public class KingdomCharacter {
 
 	public String name;
 	public int id, x, y, dx, dy;
+	public double health;
 }

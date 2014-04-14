@@ -1,5 +1,6 @@
 package net.lsrp.kingdom.entity.projectile;
 
+import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.graphics.Sprite;
 
@@ -13,17 +14,35 @@ public class SlowProjectile extends Projectile {
 		super(x, y, dir);
 		range = 100;
 		speed = 4;
-		damage = 20;
+		damage = 5;
 		
 		sprite = Sprite.slow_projectile;
 				
 		nx = Math.cos(angle) * speed;
 		ny = Math.sin(angle) * speed;
 	}
+	
+	public SlowProjectile(int x, int y, double dir, int originator) {
+		super(x, y, dir);
+		range = 100;
+		speed = 4;
+		damage = 5;
+		
+		sprite = Sprite.slow_projectile;
+				
+		nx = Math.cos(angle) * speed;
+		ny = Math.sin(angle) * speed;
+		
+		this.originator = originator;
+	}
 
 	@Override
 	public void update() {
 		move();
+		if(Game.player.projectileCollision(this) && Game.id != originator) {
+			Game.player.hit(damage);
+			this.remove();
+		}
 	}
 	
 	protected void move() {

@@ -2,6 +2,7 @@ package net.lsrp.kingdom.entity.projectile;
 
 import java.util.Random;
 
+import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.entity.Entity;
 import net.lsrp.kingdom.graphics.Sprite;
 
@@ -16,6 +17,7 @@ public abstract class Projectile extends Entity {
 	public double distance;
 	public Sprite sprite;
 	public double speed, range, damage;
+	public int originator;
 	
 	protected final Random random = new Random();
 	
@@ -25,11 +27,11 @@ public abstract class Projectile extends Entity {
 		this.x = x;
 		this.y = y;
 		angle = dir;
+		originator = Game.id;
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		super.update();
 	}
 	

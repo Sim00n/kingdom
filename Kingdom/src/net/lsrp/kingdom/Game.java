@@ -180,7 +180,7 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Tiles: " + Level.level.getTiles().length, 10, 60);
 		
 		// Render player name
-		g.drawString(username, player.x - screen.xOffset + 280 - username.length(), player.y - screen.yOffset + 92);
+		g.drawString(username, player.x - Screen.xOffset + 280 - username.length(), player.y - Screen.yOffset + 92);
 		
 		// Render enemy names
 		for(Enemy e : Enemy.enemies) {

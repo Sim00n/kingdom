@@ -134,6 +134,7 @@ public class Enemy extends Mob {
 					enemy.y = character.y;
 					enemy.xa = character.dx;
 					enemy.ya = character.dy;
+					enemy.setHealth(character.health);
 					return;
 				}
 			}

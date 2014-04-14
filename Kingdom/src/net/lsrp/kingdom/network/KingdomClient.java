@@ -14,7 +14,6 @@ import net.lsrp.kingdom.network.KingdomNetwork.AddCharacter;
 import net.lsrp.kingdom.network.KingdomNetwork.ChatMessage;
 import net.lsrp.kingdom.network.KingdomNetwork.ConnectionEstablished;
 import net.lsrp.kingdom.network.KingdomNetwork.Login;
-import net.lsrp.kingdom.network.KingdomNetwork.MoveCharacter;
 import net.lsrp.kingdom.network.KingdomNetwork.ProjectileMessage;
 import net.lsrp.kingdom.network.KingdomNetwork.Register;
 import net.lsrp.kingdom.network.KingdomNetwork.RegistrationRequired;
@@ -104,7 +103,7 @@ public class KingdomClient {
 					if(msg.type == 0) return;
 					
 					if(msg.type == 1) {
-						Projectile p = new SlowProjectile((int)msg.x, (int)msg.y, msg.angle);
+						Projectile p = new SlowProjectile((int)msg.x, (int)msg.y, msg.angle, msg.originator);
 						Level.add(p);
 						System.out.println("New Projectile at: " + msg.x + " | " + msg.y + " | " + msg.angle);
 					}
@@ -173,12 +172,13 @@ public class KingdomClient {
 							ticks = 0;
 						}
 						
-						MoveCharacter msg = new MoveCharacter();
+						UpdateCharacter msg = new UpdateCharacter();
 						msg.id = login.id;
 						msg.x = Game.player.x;
 						msg.y = Game.player.y;
 						msg.dx = Game.player.xa;
 						msg.dy = Game.player.ya;
+						msg.health = Game.player.getHealth();
 						client.sendUDP(msg);
 						
 						if(KingdomClient.chatmsg != null) {
@@ -194,6 +194,7 @@ public class KingdomClient {
 							em.x = next.x;
 							em.y = next.y;
 							em.angle = next.angle;
+							em.originator = Game.id;
 							
 							if(next instanceof SlowProjectile)
 								em.type = 1;

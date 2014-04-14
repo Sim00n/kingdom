@@ -13,7 +13,7 @@ public class Screen {
 	public final int MAP_SIZE = 64;
 	public final int MAP_SIZE_MASK = MAP_SIZE - 1;
 	
-	public int xOffset, yOffset;
+	public static int xOffset, yOffset;
 	
 	public int[] tiles = new int[MAP_SIZE * MAP_SIZE];
 	
@@ -136,7 +136,7 @@ public class Screen {
 	}
 	
 	public void setOffset(int xOffset, int yOffset) {
-		this.xOffset = xOffset;
-		this.yOffset = yOffset;
+		Screen.xOffset = xOffset;
+		Screen.yOffset = yOffset;
 	}
 }

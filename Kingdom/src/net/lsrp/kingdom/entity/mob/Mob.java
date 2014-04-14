@@ -79,4 +79,8 @@ public abstract class Mob extends Entity {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	public void hit(double damage) {
+		health -= damage;
+	}
 }

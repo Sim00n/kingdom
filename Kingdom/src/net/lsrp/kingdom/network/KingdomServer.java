@@ -16,7 +16,6 @@ import net.lsrp.kingdom.network.KingdomNetwork.AddCharacter;
 import net.lsrp.kingdom.network.KingdomNetwork.ChatMessage;
 import net.lsrp.kingdom.network.KingdomNetwork.ConnectionEstablished;
 import net.lsrp.kingdom.network.KingdomNetwork.Login;
-import net.lsrp.kingdom.network.KingdomNetwork.MoveCharacter;
 import net.lsrp.kingdom.network.KingdomNetwork.ProjectileMessage;
 import net.lsrp.kingdom.network.KingdomNetwork.Register;
 import net.lsrp.kingdom.network.KingdomNetwork.RegistrationRequired;
@@ -113,6 +112,7 @@ public class KingdomServer {
 					character.y = 100;
 					character.dx = 0;
 					character.dy = 0;
+					character.health = 100;
 					if(!saveCharacter(character)) {
 						log("[error] Unable to save character. Internal error!!! Name: " + character.name);
 						c.close();
@@ -125,31 +125,26 @@ public class KingdomServer {
 				}
 				
 				
-				if(object instanceof MoveCharacter) {
+				if(object instanceof UpdateCharacter) {
 					if(character == null) return;
 					
-					MoveCharacter msg = (MoveCharacter)object;
+					UpdateCharacter msg = (UpdateCharacter)object;
 					character.x = msg.x;
 					character.y = msg.y;
 					character.dx = msg.dx;
 					character.dy = msg.dy;
+					character.health = msg.health;
 					if(!saveCharacter(character)) {
 						connection.close();
 						return;
 					}
 					
-					UpdateCharacter update = new UpdateCharacter();
-					update.id = character.id;
-					update.x = character.x;
-					update.y = character.y;
-					update.dx = character.dx;
-					update.dy = character.dy;
-					server.sendToAllUDP(update);
+					server.sendToAllUDP(msg);
 					return;
 				}
 				
 				if(object instanceof ChatMessage) {
-					//if(character != null) return;
+					if(character != null) return;
 					
 					ChatMessage chat = (ChatMessage)object;
 					server.sendToAllTCP(chat);

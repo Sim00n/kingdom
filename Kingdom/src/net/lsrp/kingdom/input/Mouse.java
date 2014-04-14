@@ -4,6 +4,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import net.lsrp.kingdom.Game;
+
 public class Mouse implements MouseListener, MouseMotionListener {
 
 	private static int mouseX = -1;
@@ -40,7 +42,7 @@ public class Mouse implements MouseListener, MouseMotionListener {
 	}
 
 	@Override
-	public void mouseReleased(MouseEvent e) {
+	public void mouseReleased(MouseEvent e) {		
 		mouseB = -1;
 	}
 
