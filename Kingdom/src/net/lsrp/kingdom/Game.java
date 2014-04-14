@@ -180,33 +180,7 @@ public class Game extends Canvas implements Runnable {
 				e.update();
 			}
 		}	
-				/*
-		if(enemiesPackage != null) {
-			for(int i = 0; i < enemiesPackage.length; i++) {
-				if(enemiesPackage[i] != null) {
-					DataPackage12345 dp = enemiesPackage[i];
-					if(enemies[i] == null) {
-						enemies[i] = new Enemy(new TileCoordinate(dp.x, dp.y), dp.username);
-					} else {
-						enemies[i].x = dp.x;
-						enemies[i].y = dp.y;
-						enemies[i].xa = dp.xa;
-						enemies[i].ya = dp.ya;
-						enemies[i].dir = dp.dir;
-						enemies[i].xOffset = dp.xOffset;
-						enemies[i].yOffset = dp.yOffset;
-						enemies[i].username = dp.username;
-						for(int j = 0; j < dp.entities.size(); j++) {
-							level.add(dp.entities.get(j));
-						}
-						for(int j = 0; j < dp.projectiles.size(); j++) {
-							level.add(dp.projectiles.get(j));
-						}
-					}
-				}
-			}
-		}*/
-		
+				
 		Chat.update();
 	}
 	
@@ -225,7 +199,8 @@ public class Game extends Canvas implements Runnable {
 		
 		for(Enemy e : enemies) {
 			if(e != null) {
-				e.render(screen);
+				e.render(screen);		
+				screen.renderPlayerTag(e);
 			}
 		}
 		
@@ -243,14 +218,16 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Frames: " + hud_frames + " | Ticks: " + hud_ticks, 10, 40);
 		g.drawString("Tiles: " + level.getTiles().length, 10, 60);
 		
-		g.drawString("name", player.x - screen.xOffset + 280, player.y - screen.yOffset + 90);
-		for(Enemy enemy : enemies) {
-			//g.drawString("enemy", enemy.x - screen.xOffset - (player.x - enemy.x) + 280, enemy.y - screen.yOffset - (player.y - enemy.y) - 90);
-			
-			int nx = (player.x - screen.xOffset + 270) - (player.x - enemy.x);
-			int ny = (player.y - screen.yOffset + 90) - (player.y - enemy.y)*2;
-			g.drawString("P: " + player.y + " | E: " + enemy.y, 10, 100);
-			g.drawString("enemy", nx, ny);
+		// Render player name
+		g.drawString(username, player.x - screen.xOffset + 280 - username.length(), player.y - screen.yOffset + 92);
+		
+		// Render enemy names
+		for(Enemy e : enemies) {
+			if(e != null) {
+				int xp = (Game.width * 3)/2 - (player.x - e.x)*3 - 20 - e.getName().length();
+				int yp = (Game.height * 3)/2 - (player.y - e.y)*3 - 70;
+				g.drawString(e.getName(), xp, yp);
+			}
 		}
 		
 		if(key.tab || key.tab2) {
@@ -260,7 +237,7 @@ public class Game extends Canvas implements Runnable {
 			int lastH = 20 + 10;
 			for(Enemy enemy : enemies) {
 				if(enemy != null) {
-					g.drawString(enemy.id + "  " + enemy.username, getWidth() - 170 + 10, lastH);
+					g.drawString(enemy.id + "  " + enemy.name, getWidth() - 170 + 10, lastH);
 					lastH += 20;
 				}
 			}

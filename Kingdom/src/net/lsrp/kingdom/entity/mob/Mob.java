@@ -12,7 +12,7 @@ public abstract class Mob extends Entity {
 	public int dir = 0;
 	protected boolean moving = false;
 	private double health = 100.0;
-	private String name = "Mob";
+	public String name = "Mob";
 	
 	public void move(int xa, int ya) {
 		if(xa != 0 && ya != 0) {

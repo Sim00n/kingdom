@@ -36,6 +36,22 @@ public class Screen {
 		}
 	}
 	
+	public void renderSprite(int xp, int yp, Sprite sprite) {
+		for(int y = 0; y < sprite.SIZE; y++) {
+			int ya = y + yp;
+			for(int x = 0; x < sprite.SIZE; x++) {
+				int xa = x + xp;
+				
+				if(xa < -sprite.SIZE || xa >= width || ya < 0 || ya >= height) break;
+				if(xa < 0) xa = 0; 
+				
+				int col = sprite.pixels[x + y * sprite.SIZE];
+				if(col != 0xFFFF00FF)
+					pixels[xa + ya * width] = col;
+			}
+		}
+	}
+	
 	public void renderProjectile(int xp, int yp, Projectile p) {
 		xp -= xOffset;
 		yp -= yOffset;
@@ -97,13 +113,14 @@ public class Screen {
 		}		
 	}
 	
-	public void renderPlayerTag(Mob player) {
-		int xp = player.x - xOffset - 10;
-		int yp = player.y - yOffset - 20;
+	public void renderPlayerTag(Mob mob) {
+		int xp = mob.x - xOffset - 10;
+		int yp = mob.y - yOffset - 20;
+		
+		//System.out.println("x: " + xp + " | y: " + yp + " | u: " + mob.name);
 		
 		for(int y = 0; y < 2; y++) {
 			int ya = y + yp;
-			
 			for(int x = 0; x < 20; x++) {
 				int xa = x + xp;
 				
@@ -112,7 +129,7 @@ public class Screen {
 				
 				pixels[xa + ya * width] = 0x00FF0055;
 				
-				if(player.getHealth() / 5.0 > x)
+				if(mob.getHealth() / 5.0 > x)
 					pixels[xa + ya * width] = 0xFF00FF00;
 			}
 		}		

@@ -11,19 +11,18 @@ public class Enemy extends Mob {
 	private int anim = 0;
 	private boolean walking = false;
 	public int xa = 0, ya = 0;
-	public String username;
 	public int xOffset, yOffset;
 	
 	public Enemy(int x, int y, String username) {
 		this.x = x;
 		this.y = y;
-		this.username = username;
+		name = username;
 	}
 	
 	public Enemy(TileCoordinate tc, String username) {
 		this.x = tc.x();
 		this.y = tc.y();
-		this.username = username;
+		name = username;
 	}
 	
 	@Override
