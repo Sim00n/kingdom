@@ -4,8 +4,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-import net.lsrp.kingdom.Game;
-
 public class Mouse implements MouseListener, MouseMotionListener {
 
 	private static int mouseX = -1;

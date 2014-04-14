@@ -127,6 +127,17 @@ public class Chat {
 					chatmsg.message = "Commands: /q, /timestamp, /help";
 					chatmsg.authorName = "Info";
 					chat.add(chatmsg);
+				} else {
+					String[] split = cmd.split(" ");
+					if(split[0].equals("goto")) {
+						for(Enemy e : Enemy.enemies) {
+							if(split[1].equals(e.name)) {
+								Game.player.x = e.x;
+								Game.player.y = e.y;
+							}
+						}
+					}
+					
 				}
 				
 				myMessage = "";
