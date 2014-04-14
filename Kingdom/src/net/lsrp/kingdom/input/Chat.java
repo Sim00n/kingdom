@@ -10,19 +10,22 @@ import java.util.Date;
 import java.util.List;
 
 import net.lsrp.kingdom.Game;
-import net.lsrp.kingdom.network.KryoClient;
+import net.lsrp.kingdom.entity.mob.Enemy;
+import net.lsrp.kingdom.network.KingdomClient;
 import net.lsrp.kingdom.network.Network.ChatMessage;
 
 public class Chat {
 
-	private static String myMessage = "";
 	public static List<ChatMessage> chat = new ArrayList<ChatMessage>();
+	
+	private static String myMessage = "";
 	private static int tlc = Game.getWindowHeight() - (Game.getWindowHeight() / 3) - 40; //Top left corner - long calculation ...
 	private static int cursorTime = 0; 
 	private static final int CHAT_SIZE = 12;
 	
 	private static boolean typing = false;
 	private static boolean timestamp = false;
+	public static boolean playerlist = false;
 	
 	public static void type() {
 		typing = true;
@@ -81,6 +84,19 @@ public class Chat {
 						cursorTime = 0;
 				}
 		}
+		
+		if(playerlist) {
+			g.setColor(new Color(39, 38, 46, 70));
+			g.fillRect(Game.getWindowWidth() - 170 , 10, 150, 200);
+			g.setColor(new Color(255, 255, 255));
+			int lastH = 20 + 10;
+			for(Enemy enemy : Enemy.enemies) {
+				if(enemy != null) {
+					g.drawString(enemy.id + "  " + enemy.name, Game.getWindowWidth() - 170 + 10, lastH);
+					lastH += 20;
+				}
+			}
+		}
 	}
 	
 	public static void addChar(char c) {
@@ -128,7 +144,7 @@ public class Chat {
 				chatmsg.message = myMessage;
 				chatmsg.authorName = Game.username;
 				
-				KryoClient.chatmsg = chatmsg;
+				KingdomClient.chatmsg = chatmsg;
 				myMessage = "";
 				endTyping();
 			}

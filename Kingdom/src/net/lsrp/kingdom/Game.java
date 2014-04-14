@@ -8,8 +8,6 @@ import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferInt;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -22,40 +20,47 @@ import net.lsrp.kingdom.input.Keyboard;
 import net.lsrp.kingdom.input.Mouse;
 import net.lsrp.kingdom.level.Level;
 import net.lsrp.kingdom.level.TileCoordinate;
-import net.lsrp.kingdom.network.KryoCharacter;
-import net.lsrp.kingdom.network.KryoClient;
-import net.lsrp.kingdom.network.Network.UpdateCharacter;
+import net.lsrp.kingdom.network.KingdomClient;
 
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
+	// Settings
 	private static int width = 300;
 	private static int height = width / 16 * 9;
 	private static int scale = 3;
+	
+	// Name
 	public static String title = "Kingdom";
+	
+	// Client stats
 	public int hud_frames = 0;
 	public int hud_ticks = 0;
 	public static int network_frames = (int)(1000/60);
 	public static int network_ticks = 0;
 	public static int ping = 0;
 	
+	// Client info
 	public static String username;
 	public static int id;
 	
+	// Engine components
+	private Screen screen;
 	private Thread thread;
 	private JFrame frame;
 	private Keyboard key;
 	private Mouse mouse;
 	private Level level;
+	
+	// Players
 	public static Player player;
-	public static List<Enemy> enemies = new ArrayList<Enemy>();
+	
+	// Runtime components
 	private boolean running = false;
-	
-	public static Screen screen;
-	
 	private BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 	private int[] pixels = ((DataBufferInt)image.getRaster().getDataBuffer()).getData();
 	
+	// Constructor
 	public Game() {
 		Dimension size = new Dimension(width * scale, height * scale);
 		setPreferredSize(size);
@@ -65,66 +70,19 @@ public class Game extends Canvas implements Runnable {
 		key = new Keyboard();
 		mouse =  new Mouse();
 		level = Level.spawn;
+		
 		player = new Player(new TileCoordinate(20, 65), key);
 		player.init(level);
-		//enemies = new Enemy[32];
 		
 		addKeyListener(key);
 		addMouseListener(mouse);
 		addMouseMotionListener(mouse);
 	}
-	
-	public static void AddEnemy(KryoCharacter character) {
-		Enemy enemy = new Enemy(character.x, character.y, character.name);
-		enemy.id = character.id;
-		if(character.id != id && character.name != username) {
-			enemies.add(enemy);
-			System.out.println("Dodaje enemy: " + character.name);
-		}
-		System.out.println("C: " + character.id);
-		System.out.println("C: " + character.name);
-		System.out.println("C: " + character.x);
-		System.out.println("C: " + character.y);
-		System.out.println("C: " + username);
-		return;
-	}
-	
-	public static void RemoveEnemy(int id) {
-		for(Enemy enemy : enemies) {
-			if(enemy.id == id) {
-				enemies.remove(enemy);
-				System.out.println("Usuwam enemy: " + id);
-				return;
-			}
-		}
-	}
-	
-	public static void UpdateEnemy(UpdateCharacter character) {
-		for(Enemy enemy : enemies) {
-			if(character.id != Game.id) {
-				if(enemy.id == character.id) {
-					enemy.x = character.x;
-					enemy.y = character.y;
-					enemy.xa = character.dx;
-					enemy.ya = character.dy;
-					return;
-				}
-			}
-		}
-	}
-	
-	public static int getWindowWidth() {
-		return width * scale;
-	}
-	
-	public static int getWindowHeight() {
-		return height * scale;
-	}
-	
+		
 	public synchronized void start() {
-		running = true;
 		thread = new Thread(this, "Display");
 		thread.start();
+		running = true;
 	}
 	
 	public synchronized void stop() {
@@ -174,14 +132,11 @@ public class Game extends Canvas implements Runnable {
 		key.update();
 		player.update();
 		level.update();
-		
-		for(Enemy e : enemies) {
-			if(e != null) {
-				e.update();
-			}
-		}	
-				
 		Chat.update();
+		
+		for(Enemy e : Enemy.enemies)
+			if(e != null)
+				e.update();
 	}
 	
 	public void render() {
@@ -190,30 +145,37 @@ public class Game extends Canvas implements Runnable {
 			createBufferStrategy(3);
 			return;
 		}
-		
+
+		// Clear the screen cache
 		screen.clear();
 		
+		// Calculate screen placement and render level
 		int xScroll = player.x - screen.width/2;
 		int yScroll = player.y - screen.height/2;
 		level.render(xScroll, yScroll, screen);
 		
-		for(Enemy e : enemies) {
+		// Render enemies
+		for(Enemy e : Enemy.enemies) {
 			if(e != null) {
-				e.render(screen);		
-				screen.renderPlayerTag(e);
+				e.render(screen);
 			}
 		}
 		
+		// Render player
 		player.render(screen);
 		
+		// Copy rendered screen pixels into actual pixels array
 		for(int i = 0; i < pixels.length; i++) {
 			pixels[i] = screen.pixels[i];
 		}
 		
+		// Draw to screen
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
 		g.setFont(new Font("Verdana", 0, 15));
+		
+		// Print debug info
 		g.drawString("Player X: " + player.x + " ("+player.x/16 +")" + ", Y: " + player.y + " (" + player.y/16 + ")", 10, 20);
 		g.drawString("Frames: " + hud_frames + " | Ticks: " + hud_ticks, 10, 40);
 		g.drawString("Tiles: " + level.getTiles().length, 10, 60);
@@ -222,7 +184,7 @@ public class Game extends Canvas implements Runnable {
 		g.drawString(username, player.x - screen.xOffset + 280 - username.length(), player.y - screen.yOffset + 92);
 		
 		// Render enemy names
-		for(Enemy e : enemies) {
+		for(Enemy e : Enemy.enemies) {
 			if(e != null) {
 				int xp = (Game.width * 3)/2 - (player.x - e.x)*3 - 20 - e.getName().length();
 				int yp = (Game.height * 3)/2 - (player.y - e.y)*3 - 70;
@@ -230,23 +192,23 @@ public class Game extends Canvas implements Runnable {
 			}
 		}
 		
-		if(key.tab || key.tab2) {
-			g.setColor(new Color(39, 38, 46, 70));
-			g.fillRect(getWidth() - 170 , 10, 150, 200);
-			g.setColor(new Color(255, 255, 255));
-			int lastH = 20 + 10;
-			for(Enemy enemy : enemies) {
-				if(enemy != null) {
-					g.drawString(enemy.id + "  " + enemy.name, getWidth() - 170 + 10, lastH);
-					lastH += 20;
-				}
-			}
-		}
-		
+		// Chat and player list rendering
 		Chat.render(g);
 		
 		g.dispose();
 		bs.show();
+	}
+	
+	/*
+	 * Getters and setters, main ===============================
+	 */
+	
+	public static int getWindowWidth() {
+		return width * scale;
+	}
+	
+	public static int getWindowHeight() {
+		return height * scale;
 	}
 	
 	public static void main(String[] args) {
@@ -258,21 +220,23 @@ public class Game extends Canvas implements Runnable {
 			}
 		});
 		
-		KryoClient.IP = JOptionPane.showInputDialog("IP: ");
-		KryoClient.PORT = new Integer(JOptionPane.showInputDialog("Port: "));
-		username = JOptionPane.showInputDialog("Username: ");		
-		//client = new Client12345("178.63.33.130", 7788, username);
-		//if(client.connected) {
-			new KryoClient();
-			Game game = new Game();
-			game.frame.setResizable(false);
-			game.frame.setTitle("Kingdom");
-			game.frame.add(game);
-			game.frame.pack();
-			game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			game.frame.setLocationRelativeTo(null);
-			game.frame.setVisible(true);		
-			game.start();
-		//}
+		KingdomClient.IP = JOptionPane.showInputDialog("IP: ");
+		KingdomClient.PORT = new Integer(JOptionPane.showInputDialog("Port: "));
+		username = JOptionPane.showInputDialog("Username: ");
+		
+		if(KingdomClient.IP == null || KingdomClient.PORT < 0 || KingdomClient.PORT > 65563 || username == null) {
+			System.exit(0);
+		}
+		
+		new KingdomClient();
+		Game game = new Game();
+		game.frame.setResizable(false);
+		game.frame.setTitle("Kingdom");
+		game.frame.add(game);
+		game.frame.pack();
+		game.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		game.frame.setLocationRelativeTo(null);
+		game.frame.setVisible(true);		
+		game.start();
 	}
 }

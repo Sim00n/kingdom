@@ -15,22 +15,29 @@ public class Keyboard implements KeyListener {
 		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
 		tab = keys[KeyEvent.VK_TAB];
 		tab2 = keys[KeyEvent.VK_Q];
+		
+		
+		if((tab || tab2) && !Chat.playerlist && !Chat.isTyping())
+			Chat.playerlist = true;
+		if(!(tab || tab2) && Chat.playerlist)
+			Chat.playerlist = false;
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		keys[e.getKeyCode()] = true;
+		
+		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+			if (Chat.isTyping()) {
+				Chat.deleteChar();
+			}
+		}
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		keys[e.getKeyCode()] = false;
 
-		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
-			if (Chat.isTyping()) {
-				Chat.deleteChar();
-			}
-		}
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			if (Chat.isTyping()) {
 				Chat.endTyping();

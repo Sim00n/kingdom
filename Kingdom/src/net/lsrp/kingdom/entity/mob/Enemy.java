@@ -1,11 +1,19 @@
 package net.lsrp.kingdom.entity.mob;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.graphics.Sprite;
 import net.lsrp.kingdom.level.TileCoordinate;
+import net.lsrp.kingdom.network.KingdomCharacter;
+import net.lsrp.kingdom.network.Network.UpdateCharacter;
 
 public class Enemy extends Mob {
 
+	public static List<Enemy> enemies = new ArrayList<Enemy>();
+	
 	public int id;
 	private Sprite sprite;
 	private int anim = 0;
@@ -94,5 +102,45 @@ public class Enemy extends Mob {
 		}
 		
 		screen.renderPlayer(x - 16, y - 16, sprite, flip);
+		screen.renderPlayerTag(this);
+	}
+	
+	public static void AddEnemy(KingdomCharacter character) {
+		Enemy enemy = new Enemy(character.x, character.y, character.name);
+		enemy.id = character.id;
+		if(character.id != Game.id && character.name != Game.username) {
+			enemies.add(enemy);
+			System.out.println("Dodaje enemy: " + character.name);
+		}
+		System.out.println("C: " + character.id);
+		System.out.println("C: " + character.name);
+		System.out.println("C: " + character.x);
+		System.out.println("C: " + character.y);
+		System.out.println("C: " + Game.username);
+		return;
+	}
+	
+	public static void RemoveEnemy(int id) {
+		for(Enemy enemy : enemies) {
+			if(enemy.id == id) {
+				enemies.remove(enemy);
+				System.out.println("Usuwam enemy: " + id);
+				return;
+			}
+		}
+	}
+	
+	public static void UpdateEnemy(UpdateCharacter character) {
+		for(Enemy enemy : enemies) {
+			if(character.id != Game.id) {
+				if(enemy.id == character.id) {
+					enemy.x = character.x;
+					enemy.y = character.y;
+					enemy.xa = character.dx;
+					enemy.ya = character.dy;
+					return;
+				}
+			}
+		}
 	}
 }

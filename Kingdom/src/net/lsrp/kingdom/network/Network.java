@@ -16,7 +16,7 @@ public class Network {
 		kryo.register(AddCharacter.class);
 		kryo.register(UpdateCharacter.class);
 		kryo.register(RemoveCharacter.class);
-		kryo.register(KryoCharacter.class);
+		kryo.register(KingdomCharacter.class);
 		kryo.register(MoveCharacter.class);
 		kryo.register(ChatMessage.class);
 	}
@@ -45,7 +45,7 @@ public class Network {
 	}
 	
 	public static class AddCharacter {
-		public KryoCharacter character;
+		public KingdomCharacter character;
 	}
 	
 	public static class RemoveCharacter {
