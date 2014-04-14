@@ -4,8 +4,11 @@ import net.lsrp.kingdom.entity.Entity;
 import net.lsrp.kingdom.entity.projectile.Projectile;
 import net.lsrp.kingdom.entity.projectile.SlowProjectile;
 import net.lsrp.kingdom.graphics.Sprite;
+import net.lsrp.kingdom.network.KingdomClient;
 
 public abstract class Mob extends Entity {
+
+	private static final long serialVersionUID = 1L;
 
 	@SuppressWarnings("unused")
 	private Sprite sprite;
@@ -39,7 +42,7 @@ public abstract class Mob extends Entity {
 	protected void shoot(int x, int y, double dir) {
 		Projectile p = new SlowProjectile(x, y, dir);
 		level.addProjectile(p);
-		//Game.client.writeProjectiles.add(p);
+		KingdomClient.projectileUpStream.add(p);
 	}
 	
 	private boolean collision(int xa, int ya) {

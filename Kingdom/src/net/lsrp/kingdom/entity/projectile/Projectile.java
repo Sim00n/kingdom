@@ -1,21 +1,21 @@
 package net.lsrp.kingdom.entity.projectile;
 
-import java.io.Serializable;
 import java.util.Random;
 
 import net.lsrp.kingdom.entity.Entity;
 import net.lsrp.kingdom.graphics.Sprite;
 
-public abstract class Projectile extends Entity implements Serializable {
+public abstract class Projectile extends Entity {
 
 	private static final long serialVersionUID = 1L;
-	protected double x, y;
-	protected double nx, ny;
-	protected final int xOrigin, yOrigin;
-	protected double angle;
-	protected double distance;
-	Sprite sprite;
-	protected double speed, range, damage;
+
+	public double x, y;
+	public double nx, ny;
+	public final int xOrigin, yOrigin;
+	public double angle;
+	public double distance;
+	public Sprite sprite;
+	public double speed, range, damage;
 	
 	protected final Random random = new Random();
 	

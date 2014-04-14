@@ -8,9 +8,11 @@ import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.graphics.Sprite;
 import net.lsrp.kingdom.level.TileCoordinate;
 import net.lsrp.kingdom.network.KingdomCharacter;
-import net.lsrp.kingdom.network.Network.UpdateCharacter;
+import net.lsrp.kingdom.network.KingdomNetwork.UpdateCharacter;
 
 public class Enemy extends Mob {
+
+	private static final long serialVersionUID = 1L;
 
 	public static List<Enemy> enemies = new ArrayList<Enemy>();
 	
@@ -110,13 +112,7 @@ public class Enemy extends Mob {
 		enemy.id = character.id;
 		if(character.id != Game.id && character.name != Game.username) {
 			enemies.add(enemy);
-			System.out.println("Dodaje enemy: " + character.name);
 		}
-		System.out.println("C: " + character.id);
-		System.out.println("C: " + character.name);
-		System.out.println("C: " + character.x);
-		System.out.println("C: " + character.y);
-		System.out.println("C: " + Game.username);
 		return;
 	}
 	

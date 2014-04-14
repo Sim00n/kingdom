@@ -12,6 +12,8 @@ import net.lsrp.kingdom.level.TileCoordinate;
 
 public class Player extends Mob {
 
+	private static final long serialVersionUID = 1L;
+
 	private Keyboard input;
 	private Sprite sprite;
 	private int anim = 0;
@@ -134,5 +136,5 @@ public class Player extends Mob {
 		screen.renderPlayer(x - 16, y - 16, sprite, flip);
 		screen.renderPlayerTag(this);
 		
-	}	
+	}
 }

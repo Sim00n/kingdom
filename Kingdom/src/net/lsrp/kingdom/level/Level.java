@@ -14,7 +14,9 @@ public class Level {
 	protected int[] tilesInt;
 	protected int[] tiles;
 	
-	private List<Entity> entities = new ArrayList<Entity>();
+	public static Level level;
+	
+	private static List<Entity> entities = new ArrayList<Entity>();
 	private List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public static Level spawn = new SpawnLevel("/levels/spawn.png");
@@ -69,7 +71,7 @@ public class Level {
 		}
 	}
 	
-	public void add(Entity e) {
+	public static void add(Entity e) {
 		entities.add(e);
 	}
 	

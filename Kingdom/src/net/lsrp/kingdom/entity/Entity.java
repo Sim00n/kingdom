@@ -1,12 +1,15 @@
 package net.lsrp.kingdom.entity;
 
+import java.io.Serializable;
 import java.util.Random;
 
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.level.Level;
 
-public abstract class Entity {
+public abstract class Entity implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+	
 	public int x, y;
 	private boolean removed = false;
 	protected Level level;

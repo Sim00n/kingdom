@@ -12,7 +12,7 @@ import java.util.List;
 import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.entity.mob.Enemy;
 import net.lsrp.kingdom.network.KingdomClient;
-import net.lsrp.kingdom.network.Network.ChatMessage;
+import net.lsrp.kingdom.network.KingdomNetwork.ChatMessage;
 
 public class Chat {
 

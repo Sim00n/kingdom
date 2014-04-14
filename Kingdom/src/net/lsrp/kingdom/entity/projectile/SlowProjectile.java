@@ -6,6 +6,7 @@ import net.lsrp.kingdom.graphics.Sprite;
 public class SlowProjectile extends Projectile {
 
 	private static final long serialVersionUID = 1L;
+
 	public static final int FIRE_RATE = 15;
 	
 	public SlowProjectile(int x, int y, double dir) {

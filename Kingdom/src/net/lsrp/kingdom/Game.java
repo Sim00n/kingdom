@@ -50,7 +50,6 @@ public class Game extends Canvas implements Runnable {
 	private JFrame frame;
 	private Keyboard key;
 	private Mouse mouse;
-	private Level level;
 	
 	// Players
 	public static Player player;
@@ -69,10 +68,10 @@ public class Game extends Canvas implements Runnable {
 		frame = new JFrame();
 		key = new Keyboard();
 		mouse =  new Mouse();
-		level = Level.spawn;
+		Level.level = Level.spawn;
 		
 		player = new Player(new TileCoordinate(20, 65), key);
-		player.init(level);
+		player.init(Level.level);
 		
 		addKeyListener(key);
 		addMouseListener(mouse);
@@ -131,7 +130,7 @@ public class Game extends Canvas implements Runnable {
 	public void tick() {
 		key.update();
 		player.update();
-		level.update();
+		Level.level.update();
 		Chat.update();
 		
 		for(Enemy e : Enemy.enemies)
@@ -152,7 +151,7 @@ public class Game extends Canvas implements Runnable {
 		// Calculate screen placement and render level
 		int xScroll = player.x - screen.width/2;
 		int yScroll = player.y - screen.height/2;
-		level.render(xScroll, yScroll, screen);
+		Level.level.render(xScroll, yScroll, screen);
 		
 		// Render enemies
 		for(Enemy e : Enemy.enemies) {
@@ -178,7 +177,7 @@ public class Game extends Canvas implements Runnable {
 		// Print debug info
 		g.drawString("Player X: " + player.x + " ("+player.x/16 +")" + ", Y: " + player.y + " (" + player.y/16 + ")", 10, 20);
 		g.drawString("Frames: " + hud_frames + " | Ticks: " + hud_ticks, 10, 40);
-		g.drawString("Tiles: " + level.getTiles().length, 10, 60);
+		g.drawString("Tiles: " + Level.level.getTiles().length, 10, 60);
 		
 		// Render player name
 		g.drawString(username, player.x - screen.xOffset + 280 - username.length(), player.y - screen.yOffset + 92);
