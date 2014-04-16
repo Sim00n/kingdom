@@ -17,7 +17,6 @@ public class Enemy extends Mob {
 	public static List<Enemy> enemies = new ArrayList<Enemy>();
 	
 	public int id;
-	private Sprite sprite;
 	private int anim = 0;
 	private boolean walking = false;
 	public int xa = 0, ya = 0;
@@ -27,12 +26,14 @@ public class Enemy extends Mob {
 		this.x = x;
 		this.y = y;
 		name = username;
+		sprite = Sprite.enemyf;
 	}
 	
 	public Enemy(TileCoordinate tc, String username) {
 		this.x = tc.x();
 		this.y = tc.y();
 		name = username;
+		sprite = Sprite.enemyf;
 	}
 	
 	@Override

@@ -204,7 +204,7 @@ public class KingdomServer {
 		
 		AddCharacter addCharacter = new AddCharacter();
 		addCharacter.character = character;
-		server.sendToAllTCP(addCharacter);
+		server.sendToAllExceptTCP(c.getID(), addCharacter);
 	}
 	
 	public void disconnectCharacter(String name) {

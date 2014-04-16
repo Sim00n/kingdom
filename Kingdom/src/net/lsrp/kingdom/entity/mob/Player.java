@@ -137,14 +137,4 @@ public class Player extends Mob {
 		screen.renderPlayerTag(this);
 		
 	}
-	
-	public boolean projectileCollision(Projectile p) {
-		
-		if(!p.isRemoved())
-			if(p.y + p.sprite.SIZE > y && p.y < y + sprite.SIZE) 
-				if(p.x + p.sprite.SIZE > x && p.x < x + sprite.SIZE)
-					return true;
-		
-		return false;
-	}
 }

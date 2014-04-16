@@ -11,8 +11,7 @@ public abstract class Mob extends Entity {
 
 	private static final long serialVersionUID = 1L;
 
-	@SuppressWarnings("unused")
-	private Sprite sprite;
+	protected Sprite sprite = Sprite.enemyf;
 	public int dir = 0;
 	protected boolean moving = false;
 	private double health = 100.0;
@@ -84,5 +83,14 @@ public abstract class Mob extends Entity {
 	
 	public void hit(double damage) {
 		health -= damage;
+	}
+	
+	public boolean projectileCollision(Projectile p) {
+		
+		if(!p.isRemoved())
+			if(p.y + p.sprite.SIZE > y && p.y < y + sprite.SIZE)
+				if(p.x + p.sprite.SIZE > x && p.x < x + sprite.SIZE)
+					return true;
+		return false;
 	}
 }

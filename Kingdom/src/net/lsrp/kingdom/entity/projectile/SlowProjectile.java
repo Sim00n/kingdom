@@ -1,6 +1,7 @@
 package net.lsrp.kingdom.entity.projectile;
 
 import net.lsrp.kingdom.Game;
+import net.lsrp.kingdom.entity.mob.Enemy;
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.graphics.Sprite;
 
@@ -42,6 +43,14 @@ public class SlowProjectile extends Projectile {
 		if(Game.player.projectileCollision(this) && Game.id != originator) {
 			Game.player.hit(damage);
 			this.remove();
+			return;
+		}
+		for(Enemy enemy : Enemy.enemies) {
+			if(enemy.projectileCollision(this) && enemy.id != originator) {
+				enemy.hit(damage);
+				this.remove();
+				return;
+			}
 		}
 	}
 	
