@@ -140,6 +140,8 @@ public class KingdomServer {
 					character.dx = msg.dx;
 					character.dy = msg.dy;
 					character.health = msg.health;
+					character.dir = msg.dir;
+					character.walking = msg.walking;
 					if(saveCharacter(character) == -1) {
 						connection.close();
 						return;

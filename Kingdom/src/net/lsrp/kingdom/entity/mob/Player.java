@@ -9,6 +9,7 @@ import net.lsrp.kingdom.input.Chat;
 import net.lsrp.kingdom.input.Keyboard;
 import net.lsrp.kingdom.input.Mouse;
 import net.lsrp.kingdom.level.TileCoordinate;
+import net.lsrp.kingdom.network.KingdomClient;
 
 public class Player extends Mob {
 
@@ -17,7 +18,7 @@ public class Player extends Mob {
 	private Keyboard input;
 	private Sprite sprite;
 	private int anim = 0;
-	private boolean walking = false;
+	public boolean walking = false;
 	public int xa = 0, ya = 0;
 	
 	private int fireRate = 0;
@@ -26,20 +27,27 @@ public class Player extends Mob {
 		this.input = input;
 		sprite = Sprite.playerf;
 		fireRate = SlowProjectile.FIRE_RATE;
+		this.name = Game.username;
 	}
 	
 	public Player(int x, int y, Keyboard input) {
 		this.x = x;
 		this.y = y;
+		this.ix = x;
+		this.iy = y;
 		this.input = input;
 		fireRate = SlowProjectile.FIRE_RATE;
+		this.name = Game.username;
 	}
 	
 	public Player(TileCoordinate tc, Keyboard input) {
 		this.x = tc.x();
 		this.y = tc.y();
+		this.ix = tc.x();
+		this.iy = tc.y();
 		this.input = input;
 		fireRate = SlowProjectile.FIRE_RATE;
+		this.name = Game.username;
 	}
 	
 	public void update() {
@@ -67,6 +75,10 @@ public class Player extends Mob {
 		
 		clear();
 		updateShooting();
+		
+		if(health <= 0) {
+			death();
+		}
 	}
 	
 	private void clear() {
@@ -86,6 +98,23 @@ public class Player extends Mob {
 			shoot(x, y, dir);
 			fireRate = SlowProjectile.FIRE_RATE;
 		}
+	}
+	
+	@Override
+	public void death() {
+		respawn();
+	}
+	
+	public void respawn() {
+		x = ix;
+		y = iy;
+		health = maxHealth;
+		
+		Chat.sendChatToServer(KingdomClient.createChatMessage(this.name + " has respawned."));
+	}
+	
+	public void hit(double damage) {
+		health -= damage;
 	}
 	
 	public void render(Screen screen){

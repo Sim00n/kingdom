@@ -25,6 +25,8 @@ public class Enemy extends Mob {
 	public Enemy(int x, int y, String username) {
 		this.x = x;
 		this.y = y;
+		this.ix = x;
+		this.iy = y;
 		name = username;
 		sprite = Sprite.enemyf;
 	}
@@ -32,6 +34,8 @@ public class Enemy extends Mob {
 	public Enemy(TileCoordinate tc, String username) {
 		this.x = tc.x();
 		this.y = tc.y();
+		this.ix = tc.x();
+		this.iy = tc.y();
 		name = username;
 		sprite = Sprite.enemyf;
 	}
@@ -139,6 +143,8 @@ public class Enemy extends Mob {
 					enemy.y = character.y;
 					enemy.xa = character.dx;
 					enemy.ya = character.dy;
+					enemy.dir = character.dir;
+					enemy.walking = character.walking;
 					enemy.setHealth(character.health);
 					return;
 				}

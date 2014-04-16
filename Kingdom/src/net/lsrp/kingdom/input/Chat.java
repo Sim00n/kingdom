@@ -149,19 +149,26 @@ public class Chat {
 					myMessage += '.';
 				}
 				
-				ChatMessage chatmsg = new ChatMessage();
-				chatmsg.id = Game.id;
-				chatmsg.timestamp = System.currentTimeMillis();
-				chatmsg.message = myMessage;
-				chatmsg.authorName = Game.username;
-				
-				KingdomClient.chatmsg = chatmsg;
+				sendChatToServer(myMessage);
 				myMessage = "";
 				endTyping();
 			}
 		} else {
 			endTyping();
 		}
+	}
+	
+	public static void sendChatToServer(String message) {
+		ChatMessage chatmsg = new ChatMessage();
+		chatmsg.id = Game.id;
+		chatmsg.timestamp = System.currentTimeMillis();
+		chatmsg.message = message;
+		chatmsg.authorName = Game.username;
+		KingdomClient.chatmsg = chatmsg;
+	}
+	
+	public static void sendChatToServer(ChatMessage chatmsg) {
+		KingdomClient.chatmsg = chatmsg;
 	}
 	
 	public static void addToChat(ChatMessage msg) {

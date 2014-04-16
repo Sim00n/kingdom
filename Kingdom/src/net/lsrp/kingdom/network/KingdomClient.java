@@ -177,6 +177,8 @@ public class KingdomClient {
 						msg.dx = Game.player.xa;
 						msg.dy = Game.player.ya;
 						msg.health = Game.player.getHealth();
+						msg.dir = Game.player.dir;
+						msg.walking = Game.player.walking;
 						client.sendUDP(msg);
 						
 						if(KingdomClient.chatmsg != null) {
@@ -214,7 +216,7 @@ public class KingdomClient {
 		ct.start();
 	}
 	
-	public ChatMessage createChatMessage(String message) {
+	public static ChatMessage createChatMessage(String message) {
 		ChatMessage cm = new ChatMessage();
 		cm.authorName = "Client";
 		cm.id = -1;

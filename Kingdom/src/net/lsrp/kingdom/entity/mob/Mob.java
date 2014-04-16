@@ -14,7 +14,8 @@ public abstract class Mob extends Entity {
 	protected Sprite sprite = Sprite.enemyf;
 	public int dir = 0;
 	protected boolean moving = false;
-	private double health = 100.0;
+	protected final double maxHealth = 100.0;
+	protected double health = maxHealth;
 	public String name = "Mob";
 	public static final TileCoordinate defaultSpawn = new TileCoordinate(20, 65);
 	
@@ -63,6 +64,11 @@ public abstract class Mob extends Entity {
 	}
 	
 	public void render() {
+		
+	}
+	
+	public void death() {
+		
 	}
 	
 	public double getHealth() {

@@ -133,9 +133,8 @@ public class Game extends Canvas implements Runnable {
 		Level.level.update();
 		Chat.update();
 		
-		for(Enemy e : Enemy.enemies)
-			if(e != null)
-				e.update();
+		for(Enemy enemy : Enemy.enemies)
+			enemy.update();
 	}
 	
 	public void render() {
@@ -219,11 +218,17 @@ public class Game extends Canvas implements Runnable {
 			}
 		});
 		
-		KingdomClient.IP = JOptionPane.showInputDialog("IP: ");
-		KingdomClient.PORT = new Integer(JOptionPane.showInputDialog("Port: "));
-		username = JOptionPane.showInputDialog("Username: ");
+		try {
+			KingdomClient.IP = JOptionPane.showInputDialog("IP: ");
+			KingdomClient.PORT = new Integer(JOptionPane.showInputDialog("Port: "));
+			username = JOptionPane.showInputDialog("Username: ");
+		} catch(Exception e) {
+			JOptionPane.showMessageDialog(null, "Nie wpisa³eœ poprawnego IP, portu, lub nazwy u¿ytkownika.");
+			System.exit(0);
+		}
 		
 		if(KingdomClient.IP == null || KingdomClient.PORT < 0 || KingdomClient.PORT > 65563 || username == null) {
+			JOptionPane.showMessageDialog(null, "Nie wpisa³eœ poprawnego IP, portu, lub nazwy u¿ytkownika.f");
 			System.exit(0);
 		}
 		

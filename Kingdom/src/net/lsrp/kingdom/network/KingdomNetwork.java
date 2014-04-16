@@ -41,8 +41,9 @@ public class KingdomNetwork {
 	}
 	
 	public static class UpdateCharacter {
-		public int id, x, y, dx, dy;
+		public int id, x, y, dx, dy, dir;
 		public double health;
+		public boolean walking;
 	}
 	
 	public static class AddCharacter {
