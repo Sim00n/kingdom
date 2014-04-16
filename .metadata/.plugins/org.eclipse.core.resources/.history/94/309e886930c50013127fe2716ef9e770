@@ -1,0 +1,88 @@
+package net.lsrp.kingdom.entity.projectile;
+
+import java.util.Random;
+
+import net.lsrp.kingdom.entity.Entity;
+import net.lsrp.kingdom.graphics.Screen;
+import net.lsrp.kingdom.graphics.Sprite;
+
+public class ParticleEffect extends Entity {
+
+	private static final long serialVersionUID = 1L;
+
+	public int x, y, radius, color, freq, intensity;
+	public double timer, time;
+	public Sprite sprite;
+	private boolean started = false;
+	private int[] pixels;
+	private Random random = new Random();
+	
+	public double startTime;
+	
+	public ParticleEffect(int x, int y, int radius, int color, int freq, int timer, int intensity) {
+		this.x = x;
+		this.y = y;
+		this.radius = radius;
+		this.color = color;
+		this.freq = freq;
+		this.timer = this.time = timer;
+		this.intensity = intensity;
+		
+		pixels = new int[(radius*3) * (radius*3)];
+		
+		generate(1);
+	}
+	
+	public void start() {
+		started = true;
+		startTime = System.nanoTime();
+	}
+	
+	public void stop() {
+		started = false;
+		System.out.println((System.nanoTime() - startTime) / 1000000000);
+		this.remove();
+	}
+	
+	public void startAt(int x, int y) {
+		this.x = x;
+		this.y = y;
+		start();
+	}
+	
+	public void generate(int stage) {
+		
+		for(int i = 0; i < pixels.length; i++) {
+			pixels[i] = 0xFFFF00FF;
+		}
+		
+		for(int y = 0; y < radius*stage; y++) {
+			for(int x = 0; x < radius*stage; x++) {
+				if(freq > random.nextInt(100)) {
+					pixels[x + y * radius*stage] = color;
+				}
+			}
+		}
+	}
+	
+	@Override
+	public void update(double delta) {
+		//System.out.println("Timer: " + timer + " | Delta: " + delta);
+		
+		if(Math.floor(timer) % intensity == 0) {
+			generate((int)Math.round((time/timer)*10);
+		}
+				
+		timer -= delta;
+		if(timer <= 0)
+			stop();
+	}
+	
+	@Override
+	public void render(Screen screen) {
+		if(started) {
+			screen.renderParticleEffect(x, y, radius, pixels);
+		}
+	}
+	
+}

@@ -1,0 +1,214 @@
+package net.lsrp.kingdom.network;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import net.lsrp.kingdom.Game;
+import net.lsrp.kingdom.entity.Entity;
+import net.lsrp.kingdom.entity.mob.Enemy;
+import net.lsrp.kingdom.input.Chat;
+import net.lsrp.kingdom.level.Level;
+import net.lsrp.kingdom.network.KingdomNetwork.AddCharacter;
+import net.lsrp.kingdom.network.KingdomNetwork.ChatMessage;
+import net.lsrp.kingdom.network.KingdomNetwork.ConnectionEstablished;
+import net.lsrp.kingdom.network.KingdomNetwork.EntityMessage;
+import net.lsrp.kingdom.network.KingdomNetwork.Login;
+import net.lsrp.kingdom.network.KingdomNetwork.MoveCharacter;
+import net.lsrp.kingdom.network.KingdomNetwork.Register;
+import net.lsrp.kingdom.network.KingdomNetwork.RegistrationRequired;
+import net.lsrp.kingdom.network.KingdomNetwork.RemoveCharacter;
+import net.lsrp.kingdom.network.KingdomNetwork.UpdateCharacter;
+
+import com.esotericsoftware.kryonet.Client;
+import com.esotericsoftware.kryonet.Connection;
+import com.esotericsoftware.kryonet.Listener;
+import com.esotericsoftware.kryonet.Listener.ThreadedListener;
+
+
+public class KingdomClient {
+
+	public Client client;
+	Login login = new Login();
+
+	public static String IP = "";
+	public static int PORT = -1;
+	
+	public static ChatMessage chatmsg = null;
+	public static List<Entity> entityUpStream = new ArrayList<Entity>();
+	
+	public KingdomClient() {
+		
+		client = new Client();
+		client.start();
+		
+		KingdomNetwork.register(client);
+		
+		client.addListener(new ThreadedListener(new Listener() {
+			@Override
+			public void connected(Connection c) {
+				
+			}
+			
+			@Override
+			public void received(Connection connection, Object object) {
+				Game.ping = connection.getReturnTripTime();
+				
+				if(object instanceof RegistrationRequired) {
+					Register register = new Register();
+					register.name = login.name;
+					client.sendUDP(register);
+				}
+				
+				if(object instanceof AddCharacter) {
+					AddCharacter msg = (AddCharacter)object;
+					if(!msg.character.name.equals(Game.username)) {
+						Enemy.AddEnemy(msg.character);
+						
+						Chat.addToChat(createChatMessage(msg.character.name + " has connected to the game."));
+					}
+					return;
+				}
+				
+				if(object instanceof UpdateCharacter) {
+					Enemy.UpdateEnemy((UpdateCharacter)object);
+					return;
+				}
+				
+				if(object instanceof RemoveCharacter) {
+					RemoveCharacter msg = (RemoveCharacter)object;
+					Enemy.RemoveEnemy(msg.id);
+					return;
+				}
+				
+				if(object instanceof ConnectionEstablished) {
+					ConnectionEstablished conne = (ConnectionEstablished)object;
+					login.id = conne.id;
+					Game.id = login.id;
+					
+					Chat.addToChat(createChatMessage("Connected to " + KingdomClient.IP + ":" + KingdomClient.PORT + "."));
+					Chat.addToChat(createChatMessage("MOTD: " + conne.motd));
+					
+					return;
+				}
+				
+				if(object instanceof ChatMessage) {
+					ChatMessage msg = (ChatMessage)object;
+					Chat.addToChat(msg);
+					return;
+				}
+				
+				if(object instanceof EntityMessage) {
+					EntityMessage msg = (EntityMessage)object;
+					Level.add(msg.entity);
+					return;
+				}
+			}
+			
+			@Override
+			public void disconnected(Connection c) {
+				System.exit(0);
+			}
+		}));
+		
+		try {
+			Chat.addToChat(createChatMessage("Connecting to " + KingdomClient.IP + ":" + KingdomClient.PORT + " ..."));
+			
+			client.connect(5000, KingdomClient.IP, KingdomClient.PORT, KingdomClient.PORT);
+			System.out.println(KingdomClient.PORT);
+		} catch (IOException e) {
+			e.printStackTrace();
+			try {
+				KingdomClient.IP = "127.0.0.1";
+				KingdomClient.PORT = 54555;
+				Chat.addToChat(createChatMessage("No server found at " + KingdomClient.IP + ":" + KingdomClient.PORT + "! Starting a local server."));
+				
+				new KingdomServer();
+				
+				Chat.addToChat(createChatMessage("Connecting to " + KingdomClient.IP + ":" + KingdomClient.PORT + " ..."));
+				
+				client.connect(5000, KingdomClient.IP, KingdomClient.PORT, KingdomClient.PORT);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+		
+		login.name = Game.username;
+		client.sendUDP(login);
+		
+		Thread ct = new Thread() {
+			@Override
+			public void run() {
+				
+				long lastTime = System.nanoTime();
+				long timer = System.currentTimeMillis();
+				final double ns = 1000000000.0 / 60.0;
+				double delta = 0;
+				int ticks = 0; 
+				
+				while(true)
+				{
+					if(Game.player != null)
+					{
+						long now = System.nanoTime();
+						delta += (now - lastTime) / ns;
+						lastTime = now;
+						
+						while(delta >= 1) {
+							ticks++;
+							delta--;
+						}
+						
+						if(System.currentTimeMillis() - timer > 1000) {
+							timer += 1000;
+							Game.network_ticks = ticks;
+							ticks = 0;
+						}
+						
+						MoveCharacter msg = new MoveCharacter();
+						msg.id = login.id;
+						msg.x = Game.player.x;
+						msg.y = Game.player.y;
+						msg.dx = Game.player.xa;
+						msg.dy = Game.player.ya;
+						client.sendUDP(msg);
+						
+						if(KingdomClient.chatmsg != null) {
+							client.sendTCP(chatmsg);
+							KingdomClient.chatmsg = null;
+						}
+						
+						Iterator<Entity> ei = entityUpStream.iterator();
+						while(ei.hasNext()) {
+							EntityMessage em = new EntityMessage();
+							Entity next = ei.next();
+							em.entity = (Entity) ei.next();
+							
+							
+							client.sendTCP(em);
+							ei.remove();
+						}
+					}
+					
+					try {
+						Thread.sleep(Game.network_frames);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}	
+			}
+		};
+		ct.start();
+	}
+	
+	public ChatMessage createChatMessage(String message) {
+		ChatMessage cm = new ChatMessage();
+		cm.authorName = "Client";
+		cm.id = -1;
+		cm.timestamp = System.currentTimeMillis();
+		cm.message = message;
+		return cm;
+	}
+}

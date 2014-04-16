@@ -1,0 +1,26 @@
+package net.lsrp.kingdom.graphics;
+
+import java.awt.Image;
+import java.awt.image.ImageProducer;
+import java.util.Iterator;
+
+public class FontSprite {
+
+	public static final Sprite a = new Sprite(12, 0, 0, SpriteSheet.font);
+	public static final Sprite b = new Sprite(12, 0, 1, SpriteSheet.font);
+	public static final Sprite c = new Sprite(12, 0, 2, SpriteSheet.font);
+	public static final Sprite d = new Sprite(12, 0, 3, SpriteSheet.font);
+	public static final Sprite e = new Sprite(12, 0, 4, SpriteSheet.font);
+	
+	public static String get(String s) {
+		
+		Sprite[] ret = new Sprite[s.length()];
+		
+		for(int i = 0; i < s.length(); i++) {
+			if(s.charAt(i) == 'a')
+				ret[i] = a;
+		}
+		
+		return "a";
+	}
+}

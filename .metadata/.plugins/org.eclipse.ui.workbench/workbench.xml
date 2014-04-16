@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="42" version="2.0">
+<workbenchAdvisor/>
+<window height="792" maximized="true" width="1197" x="1028" y="-8">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="group.file" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.file" itemType="typeToolBarContribution" x="160" y="22"/>
+<coolItem id="additions" itemType="typeGroupMarker"/>
+<coolItem id="adt.actionSet.avdManager" itemType="typeToolBarContribution" x="61" y="22"/>
+<coolItem id="adt.actionSet.lint" itemType="typeToolBarContribution" x="53" y="22"/>
+<coolItem id="adt.actionSet.wizards" itemType="typeToolBarContribution" x="84" y="22"/>
+<coolItem id="com.soyatec.uml.UMLElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.debug.ui.launchActionSet" itemType="typeToolBarContribution" x="129" y="22"/>
+<coolItem id="org.eclipse.jdt.ui.JavaElementCreationActionSet" itemType="typeToolBarContribution" x="76" y="22"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="99" y="22"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="130" y="22"/>
+<coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.nav" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="190" y="22"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.ClassFileEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.eclipse.jdt.ui.CompilationUnitEditor" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="group.help" itemType="typeGroupMarker"/>
+<coolItem id="org.eclipse.ui.workbench.help" itemType="typeToolBarContribution" x="-1" y="-1"/>
+</coolbarLayout>
+<page aggregateWorkingSetId="Aggregate for window 1371332009345" focus="true" label="Workspace - Java">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
+<part id="7"/>
+<part id="8"/>
+<part id="9"/>
+<part id="10"/>
+<part id="11"/>
+<part id="12"/>
+<part id="13"/>
+<part id="14"/>
+<part id="15"/>
+<part id="16"/>
+<part id="17"/>
+<part id="18"/>
+<part id="19"/>
+<part id="20"/>
+<part id="21"/>
+<part id="22"/>
+<part id="23"/>
+<part id="24"/>
+<part id="25"/>
+<part id="26"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" partName="Game.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/Game.java" title="Game.java" tooltip="Kingdom/src/net/lsrp/kingdom/Game.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/Game.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1105" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Screen.java" partName="Screen.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/graphics/Screen.java" title="Screen.java" tooltip="Kingdom/src/net/lsrp/kingdom/graphics/Screen.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/graphics/Screen.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="915" selectionTopPixel="180"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/mob/Player.java" title="Player.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/mob/Player.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/mob/Player.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2624" selectionTopPixel="1455"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Enemy.java" partName="Enemy.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/mob/Enemy.java" title="Enemy.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/mob/Enemy.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/mob/Enemy.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2997" selectionTopPixel="1322"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KryoCharacter.java" partName="KryoCharacter.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/network/KryoCharacter.java" title="KryoCharacter.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KryoCharacter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/network/KryoCharacter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="122" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KingdomNetwork.java" partName="KingdomNetwork.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/network/KingdomNetwork.java" title="KingdomNetwork.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KingdomNetwork.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomNetwork.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="4" selectionOffset="1534" selectionTopPixel="362"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KryoServer.java" partName="KryoServer.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/network/KryoServer.java" title="KryoServer.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KryoServer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/network/KryoServer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7480" selectionTopPixel="107"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KingdomClient.java" partName="KingdomClient.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/network/KingdomClient.java" title="KingdomClient.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KingdomClient.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomClient.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3441" selectionTopPixel="812"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Level.java" partName="Level.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/Level.java" title="Level.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/Level.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/Level.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2829" selectionTopPixel="782"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Chat.java" partName="Chat.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/input/Chat.java" title="Chat.java" tooltip="Kingdom/src/net/lsrp/kingdom/input/Chat.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/input/Chat.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4903" selectionTopPixel="1862"/>
+</editor>
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Sprite.java" partName="Sprite.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/graphics/Sprite.java" title="Sprite.java" tooltip="Kingdom/src/net/lsrp/kingdom/graphics/Sprite.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/graphics/Sprite.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="36" selectionTopPixel="90"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpawnLevel.java" partName="SpawnLevel.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/SpawnLevel.java" title="SpawnLevel.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/SpawnLevel.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/SpawnLevel.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="14" selectionOffset="216" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Keyboard.java" partName="Keyboard.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/input/Keyboard.java" title="Keyboard.java" tooltip="Kingdom/src/net/lsrp/kingdom/input/Keyboard.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/input/Keyboard.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1371" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Entity.java" partName="Entity.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/Entity.java" title="Entity.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/Entity.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/Entity.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="440" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Mob.java" partName="Mob.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/mob/Mob.java" title="Mob.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/mob/Mob.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/mob/Mob.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="724" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpawnFloorTile.java" partName="SpawnFloorTile.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/tile/spawn_level/SpawnFloorTile.java" title="SpawnFloorTile.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/tile/spawn_level/SpawnFloorTile.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/tile/spawn_level/SpawnFloorTile.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="402" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tile.java" partName="Tile.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/tile/Tile.java" title="Tile.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/tile/Tile.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/tile/Tile.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="565" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SpriteSheet.java" partName="SpriteSheet.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/graphics/SpriteSheet.java" title="SpriteSheet.java" tooltip="Kingdom/src/net/lsrp/kingdom/graphics/SpriteSheet.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/graphics/SpriteSheet.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="649" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RandomLevel.java" partName="RandomLevel.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/RandomLevel.java" title="RandomLevel.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/RandomLevel.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/RandomLevel.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KingdomServer.java" partName="KingdomServer.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/network/KingdomServer.java" title="KingdomServer.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KingdomServer.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomServer.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="172" selectionOffset="4840" selectionTopPixel="2057"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Projectile.java" partName="Projectile.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/projectile/Projectile.java" title="Projectile.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/projectile/Projectile.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/Projectile.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="206" selectionOffset="348" selectionTopPixel="47"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SlowProjectile.java" partName="SlowProjectile.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/projectile/SlowProjectile.java" title="SlowProjectile.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/projectile/SlowProjectile.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/SlowProjectile.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="10" selectionOffset="243" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KingdomCharacter.java" partName="KingdomCharacter.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/network/KingdomCharacter.java" title="KingdomCharacter.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KingdomCharacter.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomCharacter.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="180" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Mouse.java" partName="Mouse.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/input/Mouse.java" title="Mouse.java" tooltip="Kingdom/src/net/lsrp/kingdom/input/Mouse.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/input/Mouse.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="469" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParticleEffect.java" partName="ParticleEffect.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/entity/projectile/ParticleEffect.java" title="ParticleEffect.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/projectile/ParticleEffect.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/ParticleEffect.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1208" selectionTopPixel="450"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TileCoordinate.java" partName="TileCoordinate.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/TileCoordinate.java" title="TileCoordinate.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/TileCoordinate.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/TileCoordinate.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RockTile.java" partName="RockTile.java" path="C:/Java/Projects/Kingdom/Kingdom/src/net/lsrp/kingdom/level/tile/RockTile.java" title="RockTile.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/tile/RockTile.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Kingdom/src/net/lsrp/kingdom/level/tile/RockTile.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="393" selectionTopPixel="0"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.debug.ui.DebugView" partName="Debug">
+<viewState/>
+</view>
+<view id="org.eclipse.cdt.debug.ui.executablesView" partName="Executables"/>
+<view id="org.eclipse.debug.ui.PHPDebugOutput" partName="Debug Output"/>
+<view id="org.eclipse.debug.ui.PHPBrowserOutput" partName="Browser Output"/>
+<view id="org.eclipse.egit.ui.RepositoriesView" partName="Git Repositories">
+<viewState CommonNavigator.LINKING_ENABLED="0"/>
+</view>
+<view id="org.eclipse.ui.views.TaskList" partName="Tasks"/>
+<view id="org.eclipse.debug.ui.VariableView" partName="Variables">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.BreakpointView" partName="Breakpoints">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+<view id="org.eclipse.debug.ui.ExpressionView" partName="Expressions">
+<viewState/>
+</view>
+<view id="com.android.ide.eclipse.ddms.views.LogCatView" partName="LogCat">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ProblemView" partName="Problems">
+<viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Errors (1 item)"/>
+<category IMemento.internal.id="Errors"/>
+</expanded>
+<columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.pathField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.locationField"/>
+<visible IMemento.internal.id="org.eclipse.ui.ide.markerType"/>
+</viewState>
+</view>
+<view id="org.eclipse.jdt.ui.PackageExplorer" partName="Package Explorer">
+<viewState group_libraries="1" layout="2" linkWithEditor="0" rootMode="1" workingSetName="">
+<customFilters userDefinedPatternsEnabled="false">
+<xmlDefinedFilters>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.StaticsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.pde.ui.ExternalPluginLibrariesFilter1" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.FieldsFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*" isEnabled="true"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter" isEnabled="true"/>
+<child filterId="org.eclipse.pde.ui.BinaryProjectFilter1" isEnabled="false"/>
+<child filterId="org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter" isEnabled="true"/>
+<child filterId="org.eclipse.mylyn.java.ui.MembersFilter" isEnabled="false"/>
+<child filterId="org.eclipse.m2e.MavenModuleFilter" isEnabled="false"/>
+</xmlDefinedFilters>
+</customFilters>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.dltk.debug.ui.ScriptDisplayView" partName="Interactive Console">
+<viewState/>
+</view>
+<view id="org.eclipse.jdt.ui.SourceView" partName="Declaration"/>
+<view id="org.eclipse.jdt.ui.JavadocView" partName="Javadoc"/>
+</views>
+<perspectives activePart="org.eclipse.jdt.ui.PackageExplorer" activePerspective="org.eclipse.jdt.ui.JavaPerspective">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.jdt.internal.ui.JavaPerspectiveFactory" id="org.eclipse.jdt.ui.JavaPerspective" label="Java"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="register"/>
+<alwaysOnActionSet id="com.soyatec.uml.UMLElementCreationActionSet"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
+<alwaysOnActionSet id="adt.actionSet.lint"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaElementCreationActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.junit.JUnitActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.jdt.ui.PackageExplorer"/>
+<show_view_action id="org.eclipse.jdt.ui.TypeHierarchy"/>
+<show_view_action id="org.eclipse.jdt.ui.SourceView"/>
+<show_view_action id="org.eclipse.jdt.ui.JavadocView"/>
+<show_view_action id="org.eclipse.search.ui.views.SearchView"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="org.eclipse.ui.views.ProgressView"/>
+<show_view_action id="org.eclipse.ui.navigator.ProjectExplorer"/>
+<show_view_action id="org.eclipse.ui.texteditor.TemplatesView"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="com.soyatec.database.ui.view.DatabaseExplorer"/>
+<show_view_action id="com.soyatec.database.external.DatabaseConsoleView"/>
+<show_view_action id="com.soyatec.uml.std.external.CycleExplorerView"/>
+<show_view_action id="com.soyatec.uml.std.external.DependencyView"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.mylyn.tasks.ui.views.tasks"/>
+<show_view_action id="org.eclipse.wb.core.StructureView"/>
+<show_view_action id="org.eclipse.wb.core.PaletteView"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.JavaProjectWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewPackageCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewClassCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewInterfaceCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewEnumCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewAnnotationCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSourceFolderCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewSnippetFileCreationWizard"/>
+<new_wizard_action id="org.eclipse.jdt.ui.wizards.NewJavaWorkingSetWizard"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.file"/>
+<new_wizard_action id="org.eclipse.ui.editors.wizards.UntitledTextFileWizard"/>
+<new_wizard_action id="com.android.ide.eclipse.adt.project.NewProjectWizard"/>
+<new_wizard_action id="com.android.ide.eclipse.editors.wizards.NewXmlFileWizard"/>
+<new_wizard_action id="org.eclipse.jdt.junit.wizards.NewTestCaseCreationWizard"/>
+<new_wizard_action id="org.eclipse.mylyn.tasks.ui.wizards.new.repository.task"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.debug.ui.DebugPerspective"/>
+<perspective_action id="com.android.ide.eclipse.ddms.Perspective"/>
+<perspective_action id="com.android.ide.eclipse.hierarchyviewer.PixelPerfectPespective"/>
+<perspective_action id="com.android.ide.eclipse.hierarchyviewer.TreeViewPerspective"/>
+<perspective_action id="com.soyatec.database.ui.view.DatabasePerspective"/>
+<perspective_action id="com.soyatec.edepend.perspective"/>
+<perspective_action id="org.eclipse.wst.jsdt.ui.JavaPerspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.egit.ui.RepositoriesView"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.jdt.ui.PackageExplorer" appearance="2" expanded="2">
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="Package Explorer"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
+<page content="com.soyatec.database.ui.view.DatabaseExplorer" label="LabelNotFound"/>
+<page content="com.soyatec.uml.std.external.CycleExplorerView" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.junit.ResultView" label="LabelNotFound"/>
+<page content="org.eclipse.wb.core.StructureView" label="LabelNotFound"/>
+<page content="org.eclipse.wb.core.PaletteView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@2d4b6d51" ratio="0.75" ratioLeft="750" ratioRight="250" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.16343635" ratioLeft="312" ratioRight="1597" relationship="2" relative="left"/>
+<info folder="true" part="bottom" ratio="0.7714592" ratioLeft="719" ratioRight="213" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<page content="com.soyatec.database.external.DatabaseConsoleView" label="LabelNotFound"/>
+<page content="com.soyatec.uml.std.external.DependencyView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@7a37b2e4" ratio="0.7493333" ratioLeft="562" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="right" ratio="0.49896908" ratioLeft="242" ratioRight="243" relationship="4" relative="org.eclipse.ui.internal.ViewStack@7a37b2e4">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
+<page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@63fe11a1" ratio="0.8776824" ratioLeft="818" ratioRight="114" relationship="4" relative="left">
+<folder activePageID="org.eclipse.egit.ui.RepositoriesView" appearance="2" expanded="2">
+<page content="org.eclipse.egit.ui.RepositoriesView" label="Git Repositories"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.eclipse.debug.internal.ui.DebugPerspectiveFactory" id="org.eclipse.debug.ui.DebugPerspective" label="Debug"/>
+<alwaysOnActionSet id="org.eclipse.ui.cheatsheets.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.externaltools.ExternalToolsSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<alwaysOnActionSet id="org.eclipse.wb.core.ui.actionset"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.context.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.doc.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.mylyn.tasks.ui.navigation"/>
+<alwaysOnActionSet id="register"/>
+<alwaysOnActionSet id="com.soyatec.uml.UMLElementCreationActionSet"/>
+<alwaysOnActionSet id="adt.actionSet.wizards"/>
+<alwaysOnActionSet id="adt.actionSet.refactorings"/>
+<alwaysOnActionSet id="adt.actionSet.avdManager"/>
+<alwaysOnActionSet id="adt.actionSet.lint"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.launchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.cdt.debug.ui.debugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.NavigateActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.breakpointActionSet"/>
+<alwaysOnActionSet id="org.eclipse.dltk.debug.ui.ScriptDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.debug.ui.JDTDebugActionSet"/>
+<alwaysOnActionSet id="org.eclipse.jdt.ui.JavaActionSet"/>
+<alwaysOnActionSet id="org.eclipse.php.debug.ui.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.php.ui.text.php.actionSet.presentation"/>
+<alwaysOnActionSet id="org.eclipse.php.ui.PHPActionSet"/>
+<alwaysOnActionSet id="org.eclipse.php.ui.A_OpenActionSet"/>
+<alwaysOnActionSet id="org.eclipse.debug.ui.debugActionSet"/>
+<show_view_action id="org.eclipse.debug.ui.DebugView"/>
+<show_view_action id="org.eclipse.debug.ui.VariableView"/>
+<show_view_action id="org.eclipse.debug.ui.BreakpointView"/>
+<show_view_action id="org.eclipse.debug.ui.ExpressionView"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.TaskList"/>
+<show_view_action id="com.android.ide.eclipse.ddms.views.LogCatView"/>
+<show_view_action id="com.android.ide.eclipse.ddms.views.DeviceView"/>
+<show_view_action id="com.soyatec.database.ui.view.DatabaseExplorer"/>
+<show_view_action id="com.soyatec.database.external.DatabaseConsoleView"/>
+<show_view_action id="org.eclipse.ant.ui.views.AntView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.SignalsView"/>
+<show_view_action id="org.eclipse.debug.ui.RegisterView"/>
+<show_view_action id="org.eclipse.debug.ui.ModuleView"/>
+<show_view_action id="org.eclipse.debug.ui.MemoryView"/>
+<show_view_action id="org.eclipse.ui.views.ProblemView"/>
+<show_view_action id="org.eclipse.cdt.debug.ui.executablesView"/>
+<show_view_action id="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view"/>
+<show_view_action id="org.eclipse.cdt.dsf.debug.ui.disassembly.view"/>
+<show_view_action id="org.eclipse.pde.runtime.LogView"/>
+<show_view_action id="org.eclipse.dltk.debug.ui.ScriptDisplayView"/>
+<show_view_action id="org.eclipse.jdt.debug.ui.DisplayView"/>
+<perspective_action id="com.android.ide.eclipse.ddms.Perspective"/>
+<perspective_action id="com.soyatec.database.ui.view.DatabasePerspective"/>
+<perspective_action id="org.eclipse.cdt.ui.CPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.jdt.ui.JavaBrowsingPerspective"/>
+<perspective_action id="org.eclipse.php.perspective"/>
+<perspective_action id="org.eclipse.wst.jsdt.ui.JavaPerspective"/>
+<perspective_action id="org.eclipse.wst.xml.ui.perspective"/>
+<hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.TaskList"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.cdt.debug.ui.executablesView"/>
+<view id="org.eclipse.debug.ui.PHPDebugOutput"/>
+<view id="org.eclipse.debug.ui.PHPBrowserOutput"/>
+<view id="org.eclipse.debug.ui.DebugView"/>
+<view id="org.eclipse.debug.ui.VariableView"/>
+<view id="org.eclipse.debug.ui.BreakpointView"/>
+<view id="org.eclipse.debug.ui.ExpressionView"/>
+<view id="org.eclipse.dltk.debug.ui.ScriptDisplayView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<view id="com.android.ide.eclipse.ddms.views.LogCatView"/>
+<fastViewBars/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.debug.ui.DebugView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.DebugView" label="Debug"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+<page content="org.eclipse.dltk.ui.ScriptExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ConsoleFolderView" ratio="0.7497326" ratioLeft="701" ratioRight="234" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.TaskList" label="Tasks"/>
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.cdt.debug.ui.executablesView" label="Executables"/>
+<page content="org.eclipse.debug.ui.PHPDebugOutput" label="Debug Output"/>
+<page content="org.eclipse.debug.ui.PHPBrowserOutput" label="Browser Output"/>
+<page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.PropertySheet" label="LabelNotFound"/>
+<page content="org.eclipse.jdt.debug.ui.DisplayView" label="LabelNotFound"/>
+<page content="org.eclipse.search.SearchResultView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.ui.internal.ViewStack@10a0bce4" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.debug.internal.ui.ConsoleFolderView">&#x0A;<folder activePageID="com.android.ide.eclipse.ddms.views.LogCatView" appearance="2" expanded="2">&#x0A;<page content="com.android.ide.eclipse.ddms.views.LogCatView" label="LogCat"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.44935805" ratioLeft="315" ratioRight="386" relationship="4" relative="org.eclipse.debug.internal.ui.NavigatorFolderView"/>
+<info folder="true" part="org.eclipse.debug.internal.ui.OutlineFolderView" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="org.eclipse.ui.editorss">&#x0A;<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.dsf.gdb.ui.tracecontrol.view" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.dsf.debug.ui.disassembly.view" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="org.eclipse.debug.internal.ui.ToolsFolderView" ratio="0.5" ratioLeft="956" ratioRight="956" relationship="2" relative="org.eclipse.debug.internal.ui.NavigatorFolderView">&#x0A;<folder activePageID="org.eclipse.dltk.debug.ui.ScriptDisplayView" appearance="2" expanded="2">&#x0A;<page content="org.eclipse.debug.ui.VariableView" label="Variables"/>
+<page content="org.eclipse.debug.ui.BreakpointView" label="Breakpoints"/>
+<page content="org.eclipse.debug.ui.ExpressionView" label="Expressions"/>
+<page content="org.eclipse.dltk.debug.ui.ScriptDisplayView" label="Interactive Console"/>
+<page content="org.eclipse.debug.ui.RegisterView" label="LabelNotFound"/>
+<page content="org.eclipse.cdt.debug.ui.SignalsView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.ModuleView" label="LabelNotFound"/>
+<page content="org.eclipse.debug.ui.PHPStackView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">&#x0A;<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/graphics/Screen.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomClient.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomServer.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/Level.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/tile/Tile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/graphics/Sprite.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/graphics/SpriteSheet.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/SpawnLevel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/TileCoordinate.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/RandomLevel.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/Game.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/tile/RockTile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/level/tile/spawn_level/SpawnFloorTile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/network/KingdomNetwork.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/Projectile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/SlowProjectile.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Kingdom/src/net/lsrp/kingdom/graphics/Sprite.java"/>
+</editors>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="979" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="1541" y="0"/>
+</item>
+<item historyLabel="Screen.java" index="0">
+<position info="not_deleted" x="2274" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="1541" y="0"/>
+</item>
+<item historyLabel="SpriteSheet.java" index="6">
+<position info="not_deleted" x="649" y="0"/>
+</item>
+<item historyLabel="Sprite.java" index="5">
+<position info="not_deleted" x="1152" y="0"/>
+</item>
+<item historyLabel="SpawnLevel.java" index="7">
+<position info="not_deleted" x="216" y="14"/>
+</item>
+<item historyLabel="TileCoordinate.java" index="8">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="RandomLevel.java" index="9">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Level.java" index="3">
+<position info="not_deleted" x="2383" y="0"/>
+</item>
+<item historyLabel="Level.java" index="3">
+<position/>
+</item>
+<item historyLabel="Level.java" index="3">
+<position/>
+</item>
+<item historyLabel="Game.java" index="10">
+<position info="not_deleted" x="861" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="667" y="0"/>
+</item>
+<item historyLabel="RockTile.java" index="11">
+<position info="not_deleted" x="393" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="667" y="0"/>
+</item>
+<item historyLabel="SpawnFloorTile.java" index="12">
+<position info="not_deleted" x="402" y="0"/>
+</item>
+<item historyLabel="SpawnFloorTile.java" index="12">
+<position info="not_deleted" x="402" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="1223" y="0"/>
+</item>
+<item historyLabel="Level.java" index="3">
+<position info="not_deleted" x="1862" y="0"/>
+</item>
+<item historyLabel="KingdomNetwork.java" index="13">
+<position info="not_deleted" x="1495" y="0"/>
+</item>
+<item historyLabel="KingdomClient.java" index="1">
+<position info="not_deleted" x="5617" y="0"/>
+</item>
+<item historyLabel="KingdomServer.java" index="2">
+<position info="not_deleted" x="4840" y="172"/>
+</item>
+<item historyLabel="KingdomClient.java" index="1">
+<position info="not_deleted" x="3226" y="0"/>
+</item>
+<item historyLabel="KingdomNetwork.java" index="13">
+<position info="not_deleted" x="204" y="484"/>
+</item>
+<item historyLabel="Projectile.java" index="14">
+<position info="not_deleted" x="760" y="0"/>
+</item>
+<item historyLabel="SlowProjectile.java" index="15">
+<position info="not_deleted" x="253" y="0"/>
+</item>
+<item historyLabel="KingdomNetwork.java" index="13">
+<position info="not_deleted" x="204" y="484"/>
+</item>
+<item historyLabel="KingdomNetwork.java" index="13">
+<position info="not_deleted" x="688" y="0"/>
+</item>
+<item historyLabel="SlowProjectile.java" index="15">
+<position info="not_deleted" x="253" y="0"/>
+</item>
+<item historyLabel="SlowProjectile.java" index="15">
+<position info="not_deleted" x="253" y="0"/>
+</item>
+<item historyLabel="KingdomNetwork.java" index="13">
+<position info="not_deleted" x="692" y="0"/>
+</item>
+<item historyLabel="SlowProjectile.java" index="15">
+<position info="not_deleted" x="255" y="0"/>
+</item>
+<item historyLabel="KingdomNetwork.java" index="13">
+<position info="not_deleted" x="1534" y="4"/>
+</item>
+<item historyLabel="KingdomClient.java" index="1">
+<position info="not_deleted" x="3441" y="0"/>
+</item>
+<item historyLabel="SlowProjectile.java" index="15">
+<position info="not_deleted" x="243" y="10"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="1372" y="0"/>
+</item>
+<item historyLabel="Game.java" index="10">
+<position info="not_deleted" x="861" y="0"/>
+</item>
+<item historyLabel="Screen.java" index="0">
+<position info="not_deleted" x="280" y="0"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="1372" y="0"/>
+</item>
+<item historyLabel="Screen.java" index="0">
+<position info="not_deleted" x="259" y="21"/>
+</item>
+<item historyLabel="Tile.java" index="4">
+<position info="not_deleted" x="565" y="0"/>
+</item>
+<item historyLabel="Sprite.java" index="5">
+<position info="not_deleted" x="3252" y="20"/>
+</item>
+<item historyLabel="Screen.java" index="0">
+<position info="not_deleted" x="915" y="14"/>
+</item>
+<item historyLabel="Game.java" index="10">
+<position info="not_deleted" x="861" y="0"/>
+</item>
+<item historyLabel="Sprite.java" index="16">
+<position info="not_deleted" x="3064" y="20"/>
+</item>
+<item historyLabel="Sprite.java" index="16">
+<position info="not_deleted" x="2399" y="0"/>
+</item>
+<item historyLabel="Sprite.java" index="16">
+<position info="not_deleted" x="1715" y="6"/>
+</item>
+<item historyLabel="Sprite.java" index="16">
+<position/>
+</item>
+<item active="true" historyLabel="Sprite.java" index="16">
+<position info="not_deleted" x="185" y="5"/>
+</item>
+</navigationHistory>
+<input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+<trimItem IMemento.internal.id="org.eclipse.mylyn.tasks.ui.trim.container"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="RockTile.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/tile/RockTile.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/level/tile/RockTile.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="TileCoordinate.java" tooltip="Kingdom/src/net/lsrp/kingdom/level/TileCoordinate.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/level/TileCoordinate.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="spawnlevel.png" tooltip="Kingdom/res/textures/sheets/spawnlevel.png">
+<persistable path="/Kingdom/res/textures/sheets/spawnlevel.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="level.png" tooltip="Kingdom/res/textures/levels/level.png">
+<persistable path="/Kingdom/res/textures/levels/level.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="spawn.png" tooltip="Kingdom/res/levels/spawn.png">
+<persistable path="/Kingdom/res/levels/spawn.png"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.systemExternalEditor" name="spritesheet.png" tooltip="Kingdom/res/textures/sheets/spritesheet.png">
+<persistable path="/Kingdom/res/textures/sheets/spritesheet.png"/>
+</file>
+<file factoryID="org.eclipse.egit.ui.internal.commit.CommitEditorInputFactory" id="org.eclipse.egit.ui.commitEditor" name="1cb916af [Kingdom]" tooltip="Commit 1cb916af32253cb5d2b8926578fa92f503145d54 in repository Kingdom">
+<persistable commit="1cb916af32253cb5d2b8926578fa92f503145d54" path="C:\Java\Projects\Kingdom\.git"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ParticleEffect.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/projectile/ParticleEffect.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/ParticleEffect.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChatParser.java" tooltip="Kingdom/src/net/lsrp/kingdom/input/ChatParser.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/input/ChatParser.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Mouse.java" tooltip="Kingdom/src/net/lsrp/kingdom/input/Mouse.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/input/Mouse.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="KingdomCharacter.java" tooltip="Kingdom/src/net/lsrp/kingdom/network/KingdomCharacter.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/network/KingdomCharacter.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="SlowProjectile.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/projectile/SlowProjectile.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/SlowProjectile.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Projectile.java" tooltip="Kingdom/src/net/lsrp/kingdom/entity/projectile/Projectile.java">
+<persistable path="/Kingdom/src/net/lsrp/kingdom/entity/projectile/Projectile.java"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="DefaultClassResolver.class" tooltip="com.esotericsoftware.kryo.util.DefaultClassResolver">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Kingdom/res\/kryonet-2.21\/jars\/production\/kryo-2.20.jar&lt;com.esotericsoftware.kryo.util(DefaultClassResolver.class"/>
+</file>
+<file factoryID="org.eclipse.jdt.ui.ClassFileEditorInputFactory" id="org.eclipse.jdt.ui.ClassFileEditor" name="Kryo.class" tooltip="com.esotericsoftware.kryo.Kryo">
+<persistable org.eclipse.jdt.ui.ClassFileIdentifier="=Kingdom/res\/kryonet-2.21\/jars\/production\/kryo-2.20.jar&lt;com.esotericsoftware.kryo(Kryo.class"/>
+</file>
+</mruList>
+</workbench>

@@ -1,0 +1,9 @@
+package net.lsrp.kingdom.graphics;
+
+public class FontSprite {
+
+	public FontSprite() {
+		super(int size, int x, int y, SpriteSheet sheet);
+	}
+	
+}

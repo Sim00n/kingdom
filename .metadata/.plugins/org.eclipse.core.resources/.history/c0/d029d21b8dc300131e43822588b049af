@@ -1,0 +1,5 @@
+package net.lsrp.kingdom.input;
+
+public class ChatParser {
+
+}

@@ -1,0 +1,84 @@
+package net.lsrp.kingdom.input;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+import net.lsrp.kingdom.Game;
+import net.lsrp.kingdom.entity.projectile.ParticleEffect;
+import net.lsrp.kingdom.level.Level;
+
+public class Keyboard implements KeyListener {
+
+	private boolean[] keys = new boolean[65563];
+	public boolean up, down, left, right, tab, tab2;
+
+	public void update() {
+		up = keys[KeyEvent.VK_UP] || keys[KeyEvent.VK_W];
+		down = keys[KeyEvent.VK_DOWN] || keys[KeyEvent.VK_S];
+		left = keys[KeyEvent.VK_LEFT] || keys[KeyEvent.VK_A];
+		right = keys[KeyEvent.VK_RIGHT] || keys[KeyEvent.VK_D];
+		tab = keys[KeyEvent.VK_TAB];
+		tab2 = keys[KeyEvent.VK_Q];
+		
+		
+		if((tab || tab2) && !Chat.playerlist && !Chat.isTyping())
+			Chat.playerlist = true;
+		if(!(tab || tab2) && Chat.playerlist)
+			Chat.playerlist = false;
+	}
+
+	@Override
+	public void keyPressed(KeyEvent e) {
+		keys[e.getKeyCode()] = true;
+		
+		if (e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+			if (Chat.isTyping()) {
+				Chat.deleteChar();
+			}
+		}
+	}
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		keys[e.getKeyCode()] = false;
+
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			if (Chat.isTyping()) {
+				Chat.endTyping();
+			}
+		}
+		if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+			if (Chat.isTyping()) {
+				Chat.send();
+			}
+			Chat.endTyping();
+		}
+		
+		if(e.getKeyCode() == KeyEvent.VK_E){
+			ParticleEffect pe = new ParticleEffect(Game.player.x, Game.player.y, 10, 0xFF00FF00, 30, 5000, 100);
+			pe.start();
+			Level.add(pe);
+			ParticleEffect pe2 = new ParticleEffect(Game.player.x + 40, Game.player.y, 10, 0xFF00FF00, 30, 5000, 500);
+			pe2.start();
+			Level.add(pe2);
+			ParticleEffect pe3 = new ParticleEffect(Game.player.x + 80, Game.player.y, 50, 0xFF00FF00, 30, 5000, 100);
+			pe3.start();
+			Level.add(pe3);
+		}
+	}
+
+	@Override
+	public void keyTyped(KeyEvent e) {
+		if (e.getKeyChar() == 't' || e.getKeyChar() == 'T') {
+			if (!Chat.isTyping()) {
+				Chat.type();
+			} else {
+				Chat.addChar(e.getKeyChar());
+			}
+		} else {
+			if (e.getKeyCode() == 0 && e.getKeyChar() != '\n' && e.getKeyChar() != '\b')
+				Chat.addChar(e.getKeyChar());
+		}
+	}
+
+}

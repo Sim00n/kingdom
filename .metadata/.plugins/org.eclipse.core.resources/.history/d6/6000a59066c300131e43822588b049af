@@ -1,0 +1,11 @@
+package net.lsrp.kingdom.graphics;
+
+public class FontSprite {
+
+	Sprite a = new Sprite(12, 0, 0, SpriteSheet.font);)
+	
+	public FontSprite() {
+		super(int size, int x, int y, SpriteSheet sheet);
+	}
+	
+}
