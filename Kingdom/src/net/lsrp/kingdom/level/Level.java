@@ -1,6 +1,7 @@
 package net.lsrp.kingdom.level;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import net.lsrp.kingdom.entity.Entity;
@@ -17,7 +18,7 @@ public class Level {
 	public static Level level;
 	
 	private static List<Entity> entities = new ArrayList<Entity>();
-	private List<Projectile> projectiles = new ArrayList<Projectile>();
+	private static List<Projectile> projectiles = new ArrayList<Projectile>();
 	
 	public static Level spawn = new SpawnLevel("/levels/spawn.png");
 	
@@ -39,13 +40,13 @@ public class Level {
 	protected void loadLevel(String path) {
 	}
 	
-	public void update() {
+	public void update(double delta) {
 		for(int i = 0; i < entities.size(); i++) {
-			entities.get(i).update();
+			entities.get(i).update(delta);
 		}
 		
 		for(int i = 0; i < projectiles.size(); i++) {
-			projectiles.get(i).update();
+			projectiles.get(i).update(delta);
 		}
 	}
 	
@@ -73,6 +74,14 @@ public class Level {
 	
 	public static void add(Entity e) {
 		entities.add(e);
+	}
+	
+	public static void remove(Entity e) {
+		Iterator<Entity> i = entities.iterator();
+		while(i.hasNext()) {
+			if(i.next().equals(e))
+				i.remove();
+		}
 	}
 	
 	public void addProjectile(Projectile p) {

@@ -123,7 +123,6 @@ public class Screen {
 			int ya = y + yp;
 			for(int x = 0; x < 20; x++) {
 				int xa = x + xp;
-				
 				if(xa < -32 || xa >= width || ya < 0 || ya >= height) break;
 				if(xa < 0) xa = 0; 
 				
@@ -133,6 +132,23 @@ public class Screen {
 					pixels[xa + ya * width] = 0xFF00FF00;
 			}
 		}		
+	}
+
+	public void renderParticleEffect(int xp, int yp, int radius, int[] pixels) {
+		
+		for(int y = 0; y < radius; y++) {
+			int ya = y + yp - yOffset - 30;
+			for(int x = 0; x < radius; x++) {
+				int xa = x + xp - xOffset;
+				
+				if(xa < -radius*2 || xa >= width || ya < 0 || ya >= height) break;
+				if(xa < 0) xa = 0; 
+				
+				int col = pixels[x + y * radius];
+				if(col != 0xFFFF00FF)
+					this.pixels[xa + ya * width] = col;
+			}
+		}
 	}
 	
 	public void setOffset(int xOffset, int yOffset) {

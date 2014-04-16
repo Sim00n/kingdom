@@ -16,7 +16,8 @@ public abstract class Entity implements Serializable {
 	protected Level level;
 	protected final Random random = new Random();
 	
-	public void update() {
+	public void update(double delta) {
+		
 	}
 	
 	public void render(Screen screen) {
@@ -25,6 +26,7 @@ public abstract class Entity implements Serializable {
 	public void remove() {
 		//Remove from level
 		removed = true;
+		Level.remove(this);
 	}
 	
 	public boolean isRemoved() {

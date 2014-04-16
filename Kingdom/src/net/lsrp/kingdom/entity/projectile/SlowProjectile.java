@@ -38,16 +38,18 @@ public class SlowProjectile extends Projectile {
 	}
 
 	@Override
-	public void update() {
+	public void update(double delta) {
 		move();
 		if(Game.player.projectileCollision(this) && Game.id != originator) {
 			Game.player.hit(damage);
+			collision();
 			this.remove();
 			return;
 		}
 		for(Enemy enemy : Enemy.enemies) {
 			if(enemy.projectileCollision(this) && enemy.id != originator) {
 				enemy.hit(damage);
+				collision();
 				this.remove();
 				return;
 			}

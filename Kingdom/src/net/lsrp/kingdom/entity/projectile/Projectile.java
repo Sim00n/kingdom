@@ -5,6 +5,7 @@ import java.util.Random;
 import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.entity.Entity;
 import net.lsrp.kingdom.graphics.Sprite;
+import net.lsrp.kingdom.level.Level;
 
 public abstract class Projectile extends Entity {
 
@@ -31,11 +32,17 @@ public abstract class Projectile extends Entity {
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void update(double delta) {
+		super.update(delta);
 	}
 	
 	protected void move() {
+		
+	}
+	
+	protected void collision() {
+		ParticleEffect pe = new ParticleEffect((int)x, (int)y, 10, 0xFFAABBCC, 40, 2500, 10, true);
+		Level.add(pe);
 	}
 	
 	public Sprite getSprite() {

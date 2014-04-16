@@ -25,10 +25,13 @@ import net.lsrp.kingdom.network.KingdomClient;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
+	private static final boolean DEBUG = false;
+	
 	// Settings
 	private static int width = 300;
 	private static int height = width / 16 * 9;
 	private static int scale = 3;
+	private static double TICKS = 60.0;
 	
 	// Name
 	public static String title = "Kingdom";
@@ -96,7 +99,7 @@ public class Game extends Canvas implements Runnable {
 	public void run() {
 		long lastTime = System.nanoTime();
 		long timer = System.currentTimeMillis();
-		final double ns = 1000000000.0 / 60.0;
+		final double ns = 1000000000.0 / TICKS;
 		double delta = 0;
 		int frames = 0;
 		int ticks = 0; 
@@ -109,7 +112,7 @@ public class Game extends Canvas implements Runnable {
 			lastTime = now;
 			
 			while(delta >= 1) {
-				tick();
+				tick(delta * (1000.0/TICKS));
 				ticks++;
 				delta--;
 			}
@@ -127,10 +130,10 @@ public class Game extends Canvas implements Runnable {
 		}
 	}
 	
-	public void tick() {
+	public void tick(double delta) {
 		key.update();
 		player.update();
-		Level.level.update();
+		Level.level.update(delta);
 		Chat.update();
 		
 		for(Enemy enemy : Enemy.enemies)
@@ -218,18 +221,24 @@ public class Game extends Canvas implements Runnable {
 			}
 		});
 		
-		try {
-			KingdomClient.IP = JOptionPane.showInputDialog("IP: ");
-			KingdomClient.PORT = new Integer(JOptionPane.showInputDialog("Port: "));
-			username = JOptionPane.showInputDialog("Username: ");
-		} catch(Exception e) {
-			JOptionPane.showMessageDialog(null, "Nie wpisa³eœ poprawnego IP, portu, lub nazwy u¿ytkownika.");
-			System.exit(0);
-		}
-		
-		if(KingdomClient.IP == null || KingdomClient.PORT < 0 || KingdomClient.PORT > 65563 || username == null) {
-			JOptionPane.showMessageDialog(null, "Nie wpisa³eœ poprawnego IP, portu, lub nazwy u¿ytkownika.f");
-			System.exit(0);
+		if(DEBUG) {
+			KingdomClient.IP = "127.0.0.1";
+			KingdomClient.PORT = 54555;
+			username = "Sim00n";
+		} else {
+			try {
+				KingdomClient.IP = JOptionPane.showInputDialog("IP: ");
+				KingdomClient.PORT = new Integer(JOptionPane.showInputDialog("Port: "));
+				username = JOptionPane.showInputDialog("Username: ");
+			} catch(Exception e) {
+				JOptionPane.showMessageDialog(null, "Nie wpisa³eœ poprawnego IP, portu, lub nazwy u¿ytkownika.");
+				System.exit(0);
+			}
+			
+			if(KingdomClient.IP == null || KingdomClient.PORT < 0 || KingdomClient.PORT > 65563 || username == null) {
+				JOptionPane.showMessageDialog(null, "Nie wpisa³eœ poprawnego IP, portu, lub nazwy u¿ytkownika.f");
+				System.exit(0);
+			}
 		}
 		
 		new KingdomClient();
