@@ -4,6 +4,7 @@ import net.lsrp.kingdom.entity.Entity;
 import net.lsrp.kingdom.entity.projectile.Projectile;
 import net.lsrp.kingdom.entity.projectile.SlowProjectile;
 import net.lsrp.kingdom.graphics.Sprite;
+import net.lsrp.kingdom.level.TileCoordinate;
 import net.lsrp.kingdom.network.KingdomClient;
 
 public abstract class Mob extends Entity {
@@ -16,6 +17,7 @@ public abstract class Mob extends Entity {
 	protected boolean moving = false;
 	private double health = 100.0;
 	public String name = "Mob";
+	public static final TileCoordinate defaultSpawn = new TileCoordinate(20, 65);
 	
 	public void move(int xa, int ya) {
 		if(xa != 0 && ya != 0) {

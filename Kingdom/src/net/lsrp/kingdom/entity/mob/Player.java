@@ -141,8 +141,8 @@ public class Player extends Mob {
 	public boolean projectileCollision(Projectile p) {
 		
 		if(!p.isRemoved())
-			if(p.y > y && p.y < y + sprite.SIZE * 2) 
-				if(p.x > x + sprite.SIZE/2 && p.x < x + sprite.SIZE)
+			if(p.y + p.sprite.SIZE > y && p.y < y + sprite.SIZE) 
+				if(p.x + p.sprite.SIZE > x && p.x < x + sprite.SIZE)
 					return true;
 		
 		return false;

@@ -108,9 +108,14 @@ public class Enemy extends Mob {
 	}
 	
 	public static void AddEnemy(KingdomCharacter character) {
-		Enemy enemy = new Enemy(character.x, character.y, character.name);
+		Enemy enemy;
+		if(character.x != 0 && character.y != 0)
+			enemy = new Enemy(character.x, character.y, character.name);
+		else
+			enemy = new Enemy(Mob.defaultSpawn, character.name);
 		enemy.id = character.id;
-		if(character.id != Game.id && character.name != Game.username) {
+		
+		if(character.id != Game.id && !character.name.equals(Game.username)) {
 			enemies.add(enemy);
 		}
 		return;
@@ -120,7 +125,6 @@ public class Enemy extends Mob {
 		for(Enemy enemy : enemies) {
 			if(enemy.id == id) {
 				enemies.remove(enemy);
-				System.out.println("Usuwam enemy: " + id);
 				return;
 			}
 		}

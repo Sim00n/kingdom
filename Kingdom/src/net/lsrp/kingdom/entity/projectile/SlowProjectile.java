@@ -59,6 +59,7 @@ public class SlowProjectile extends Projectile {
 	
 	@Override
 	public void render(Screen screen) {
-		screen.renderProjectile((int) x - 12, (int) y - 2, this);
+		if(!isRemoved())
+			screen.renderProjectile((int) x - 12, (int) y - 2, this);
 	}
 }

@@ -33,6 +33,7 @@ public class KingdomServer {
 	HashSet<KingdomCharacter> loggedIn = new HashSet<KingdomCharacter>();
 	
 	public static final int PORT = 54555;
+	public static final String MOTD = "Wiadomoœæ powitalna z serwera";
 	
 	public KingdomServer() throws IOException {
 		server = new Server() {
@@ -73,13 +74,13 @@ public class KingdomServer {
 					
 					if(character == null) {
 						log("[info] Registration required. Name: " + name);
-						c.sendUDP(new RegistrationRequired());
+						c.sendTCP(new RegistrationRequired());
 						return;
 					}
 					
 					loggedIn(connection, character);
 					ConnectionEstablished conne = new ConnectionEstablished();
-					conne.motd = "Wiadomoœæ powitalna z serwera.";
+					conne.motd = KingdomServer.MOTD;
 					conne.id = character.id;
 					c.sendTCP(conne);
 					
@@ -108,18 +109,23 @@ public class KingdomServer {
 					
 					character = new KingdomCharacter();
 					character.name = register.name;
-					character.x = 100;
-					character.y = 100;
 					character.dx = 0;
 					character.dy = 0;
 					character.health = 100;
-					if(!saveCharacter(character)) {
+					character.id = saveCharacter(character); 
+					if(character.id == -1) {
 						log("[error] Unable to save character. Internal error!!! Name: " + character.name);
 						c.close();
 						return;
 					}
 					
 					loggedIn(connection, character);
+					
+					ConnectionEstablished conne = new ConnectionEstablished();
+					conne.motd = KingdomServer.MOTD;
+					conne.id = character.id;
+					c.sendTCP(conne);
+										
 					log("[join] " + character.name + " has connected after registration.");
 					return;
 				}
@@ -134,7 +140,7 @@ public class KingdomServer {
 					character.dx = msg.dx;
 					character.dy = msg.dy;
 					character.health = msg.health;
-					if(!saveCharacter(character)) {
+					if(saveCharacter(character) == -1) {
 						connection.close();
 						return;
 					}
@@ -144,7 +150,7 @@ public class KingdomServer {
 				}
 				
 				if(object instanceof ChatMessage) {
-					if(character != null) return;
+					//if(character != null) return;
 					
 					ChatMessage chat = (ChatMessage)object;
 					server.sendToAllTCP(chat);
@@ -191,14 +197,14 @@ public class KingdomServer {
 		for(KingdomCharacter other : loggedIn) {
 			AddCharacter addCharacter = new AddCharacter();
 			addCharacter.character = other;
-			c.sendUDP(addCharacter);
+			c.sendTCP(addCharacter);
 		}
 		
 		loggedIn.add(character);
 		
 		AddCharacter addCharacter = new AddCharacter();
 		addCharacter.character = character;
-		server.sendToAllUDP(addCharacter);
+		server.sendToAllTCP(addCharacter);
 	}
 	
 	public void disconnectCharacter(String name) {
@@ -210,13 +216,13 @@ public class KingdomServer {
 		}
 	}
 	
-	public boolean saveCharacter(KingdomCharacter character) {
+	public int saveCharacter(KingdomCharacter character) {
 		File file = new File("characters", character.name.toLowerCase());
 		file.getParentFile().mkdirs();
 		
 		if(character.id == 0) {
 			String[] children = file.getParentFile().list();
-			if(children == null) return false;
+			if(children == null) return -1;
 			character.id = children.length + 1;
 		}
 		
@@ -228,10 +234,10 @@ public class KingdomServer {
 			output.writeInt(character.y);
 			output.writeInt(character.dx);
 			output.writeInt(character.dy);
-			return true;
+			return character.id;
 		} catch (IOException e) {
 			e.printStackTrace();
-			return false;
+			return -1;
 		} finally {
 			try {
 				output.close();

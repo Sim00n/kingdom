@@ -105,7 +105,7 @@ public class KingdomClient {
 					if(msg.type == 1) {
 						Projectile p = new SlowProjectile((int)msg.x, (int)msg.y, msg.angle, msg.originator);
 						Level.add(p);
-						System.out.println("New Projectile at: " + msg.x + " | " + msg.y + " | " + msg.angle);
+						//System.out.println("New Projectile at: " + msg.x + " | " + msg.y + " | " + msg.angle);
 					}
 					return;
 				}
@@ -119,9 +119,7 @@ public class KingdomClient {
 		
 		try {
 			Chat.addToChat(createChatMessage("Connecting to " + KingdomClient.IP + ":" + KingdomClient.PORT + " ..."));
-			
 			client.connect(5000, KingdomClient.IP, KingdomClient.PORT, KingdomClient.PORT);
-			System.out.println(KingdomClient.PORT);
 		} catch (IOException e) {
 			e.printStackTrace();
 			try {

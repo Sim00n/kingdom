@@ -13,13 +13,13 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import net.lsrp.kingdom.entity.mob.Enemy;
+import net.lsrp.kingdom.entity.mob.Mob;
 import net.lsrp.kingdom.entity.mob.Player;
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.input.Chat;
 import net.lsrp.kingdom.input.Keyboard;
 import net.lsrp.kingdom.input.Mouse;
 import net.lsrp.kingdom.level.Level;
-import net.lsrp.kingdom.level.TileCoordinate;
 import net.lsrp.kingdom.network.KingdomClient;
 
 public class Game extends Canvas implements Runnable {
@@ -70,7 +70,7 @@ public class Game extends Canvas implements Runnable {
 		mouse =  new Mouse();
 		Level.level = Level.spawn;
 		
-		player = new Player(new TileCoordinate(20, 65), key);
+		player = new Player(Mob.defaultSpawn, key);
 		player.init(Level.level);
 		
 		addKeyListener(key);
