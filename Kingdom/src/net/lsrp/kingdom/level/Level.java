@@ -104,8 +104,7 @@ public class Level {
 		if(tiles[x + y * width] == Tile.col_spawn_hedge) return Tile.spawnHedgeTile;
 		if(tiles[x + y * width] == Tile.col_spawn_wall1) return Tile.spawnWall1Tile;
 		if(tiles[x + y * width] == Tile.col_spawn_wall2) return Tile.spawnWall2Tile;
-		if(tiles[x + y * width] == Tile.col_spawn_water) return Tile.spawnWaterTile;
-		
+		if(tiles[x + y * width] == Tile.col_spawn_water) return Tile.spawnWaterTile;		
 		
 		return Tile.voidTile;
 	}

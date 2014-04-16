@@ -6,8 +6,10 @@ import java.util.List;
 import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.graphics.Sprite;
+import net.lsrp.kingdom.input.Chat;
 import net.lsrp.kingdom.level.TileCoordinate;
 import net.lsrp.kingdom.network.KingdomCharacter;
+import net.lsrp.kingdom.network.KingdomClient;
 import net.lsrp.kingdom.network.KingdomNetwork.UpdateCharacter;
 
 public class Enemy extends Mob {
@@ -129,6 +131,7 @@ public class Enemy extends Mob {
 	public static void RemoveEnemy(int id) {
 		for(Enemy enemy : enemies) {
 			if(enemy.id == id) {
+				Chat.addToChat(KingdomClient.createChatMessage(enemy.name + " has disconnected from the server."));
 				enemies.remove(enemy);
 				return;
 			}
