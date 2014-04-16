@@ -1,10 +1,7 @@
 package net.lsrp.kingdom.graphics;
 
-import java.io.Serializable;
+public class Sprite {
 
-public class Sprite implements Serializable {
-
-	private static final long serialVersionUID = 1L;
 	public final int SIZE;
 	private int x, y;
 	public int[] pixels;
@@ -22,8 +19,6 @@ public class Sprite implements Serializable {
 	public static Sprite spawn_wall1 = new Sprite(16, 0, 1, SpriteSheet.spawnLevel);
 	public static Sprite spawn_wall2 = new Sprite(16, 0, 2, SpriteSheet.spawnLevel);
 	public static Sprite spawn_floor = new Sprite(16, 1, 1, SpriteSheet.spawnLevel);
-	
-	public static Sprite crotin = new Sprite(16, 2, 1, SpriteSheet.spawnLevel);
 	
 	//Player Sprites
 	public static Sprite playerf = new Sprite(32, 0, 5, SpriteSheet.tiles);
