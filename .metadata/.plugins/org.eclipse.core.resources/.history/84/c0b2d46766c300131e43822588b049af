@@ -1,9 +1,0 @@
-package net.lsrp.kingdom.graphics;
-
-public class FontSprite extends Sprite {
-
-	public FontSprite() {
-		super();
-	}
-	
-}
