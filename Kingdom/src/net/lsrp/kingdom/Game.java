@@ -25,7 +25,7 @@ import net.lsrp.kingdom.network.KingdomClient;
 public class Game extends Canvas implements Runnable {
 	private static final long serialVersionUID = 1L;
 
-	private static final boolean DEBUG = true;
+	private static final boolean DEBUG = false;
 	
 	// Settings
 	private static int width = 300;

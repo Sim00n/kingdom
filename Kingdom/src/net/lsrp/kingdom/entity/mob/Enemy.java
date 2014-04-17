@@ -14,8 +14,6 @@ import net.lsrp.kingdom.network.KingdomNetwork.UpdateCharacter;
 
 public class Enemy extends Mob {
 
-	private static final long serialVersionUID = 1L;
-
 	public static List<Enemy> enemies = new ArrayList<Enemy>();
 	
 	public int id;

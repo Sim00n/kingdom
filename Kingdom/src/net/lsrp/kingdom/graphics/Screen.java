@@ -133,21 +133,14 @@ public class Screen {
 			}
 		}		
 	}
-
-	public void renderParticleEffect(int xp, int yp, int radius, int[] pixels) {
+	
+	public void renderParticle(int xp, int yp, int color) {
+		int ya = yp - yOffset;
+		int xa = xp - xOffset;
 		
-		for(int y = 0; y < radius; y++) {
-			int ya = y + yp - yOffset - 30;
-			for(int x = 0; x < radius; x++) {
-				int xa = x + xp - xOffset;
-				
-				if(xa < -radius*2 || xa >= width || ya < 0 || ya >= height) break;
-				if(xa < 0) xa = 0; 
-				
-				int col = pixels[x + y * radius];
-				if(col != 0xFFFF00FF)
-					this.pixels[xa + ya * width] = col;
-			}
+		if(xa > 0 && xa < width && ya > 0 && ya < height) {
+			if(color != 0xFFFF00FF)
+				pixels[xa + ya * width] = color;
 		}
 	}
 	

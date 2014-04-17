@@ -13,8 +13,6 @@ import net.lsrp.kingdom.network.KingdomClient;
 
 public class Player extends Mob {
 
-	private static final long serialVersionUID = 1L;
-
 	private Keyboard input;
 	private Sprite sprite;
 	private int anim = 0;

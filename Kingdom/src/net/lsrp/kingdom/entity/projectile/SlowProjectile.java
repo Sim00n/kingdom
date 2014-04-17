@@ -4,10 +4,9 @@ import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.entity.mob.Enemy;
 import net.lsrp.kingdom.graphics.Screen;
 import net.lsrp.kingdom.graphics.Sprite;
+import net.lsrp.kingdom.level.Level;
 
 public class SlowProjectile extends Projectile {
-
-	private static final long serialVersionUID = 1L;
 
 	public static final int FIRE_RATE = 15;
 	
@@ -42,17 +41,23 @@ public class SlowProjectile extends Projectile {
 		move();
 		if(Game.player.projectileCollision(this) && Game.id != originator) {
 			Game.player.hit(damage);
-			collision();
+			collision(Game.player);
 			this.remove();
 			return;
 		}
 		for(Enemy enemy : Enemy.enemies) {
 			if(enemy.projectileCollision(this) && enemy.id != originator) {
 				enemy.hit(damage);
-				collision();
+				collision(enemy);
 				this.remove();
 				return;
 			}
+		}
+		
+		if(Level.level.getTile((int)x >> 4, (int)y >> 4).solid()) {
+			collision(null);
+			this.remove();
+			return;
 		}
 	}
 	

@@ -4,12 +4,11 @@ import net.lsrp.kingdom.entity.Entity;
 import net.lsrp.kingdom.entity.projectile.Projectile;
 import net.lsrp.kingdom.entity.projectile.SlowProjectile;
 import net.lsrp.kingdom.graphics.Sprite;
+import net.lsrp.kingdom.level.Level;
 import net.lsrp.kingdom.level.TileCoordinate;
 import net.lsrp.kingdom.network.KingdomClient;
 
 public abstract class Mob extends Entity {
-
-	private static final long serialVersionUID = 1L;
 
 	protected Sprite sprite = Sprite.enemyf;
 	public int dir = 0;
@@ -17,7 +16,7 @@ public abstract class Mob extends Entity {
 	protected final double maxHealth = 100.0;
 	protected double health = maxHealth;
 	public String name = "Mob";
-	public static final TileCoordinate defaultSpawn = new TileCoordinate(20, 65);
+	public static final TileCoordinate defaultSpawn = Level.level.getSpawn();
 	
 	public void move(int xa, int ya) {
 		if(xa != 0 && ya != 0) {

@@ -4,12 +4,13 @@ import java.util.Random;
 
 import net.lsrp.kingdom.Game;
 import net.lsrp.kingdom.entity.Entity;
+import net.lsrp.kingdom.entity.mob.Mob;
+import net.lsrp.kingdom.entity.particle.ParticleEffect;
+import net.lsrp.kingdom.entity.particle.ParticleEffect.PARTICLE_TYPE;
 import net.lsrp.kingdom.graphics.Sprite;
 import net.lsrp.kingdom.level.Level;
 
 public abstract class Projectile extends Entity {
-
-	private static final long serialVersionUID = 1L;
 
 	public double x, y;
 	public double nx, ny;
@@ -40,9 +41,14 @@ public abstract class Projectile extends Entity {
 		
 	}
 	
-	protected void collision() {
-		ParticleEffect pe = new ParticleEffect((int)x, (int)y, 10, 0xFFAABBCC, 40, 2500, 10, true);
-		Level.add(pe);
+	protected void collision(Entity e) {
+		if(e instanceof Mob) {
+			ParticleEffect pe = new ParticleEffect((int)x, (int)y, 50, 0xFF00FF00, 10, 2, PARTICLE_TYPE.LINEAR);
+			Level.add(pe);
+		} else {
+			ParticleEffect pe = new ParticleEffect((int)x, (int)y, 50, 0xFF00FF00, 10, 2, PARTICLE_TYPE.SPATTER);
+			Level.add(pe);
+		}
 	}
 	
 	public Sprite getSprite() {

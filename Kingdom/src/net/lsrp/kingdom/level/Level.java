@@ -92,21 +92,26 @@ public class Level {
 		return projectiles;
 	}
 	
-	/*
-	 * Grass = 0xFF00FF21
-	 * Flower = 0xFFFFD800
-	 * Rock = 0xFF545024
-	 */
 	public Tile getTile(int x, int y) {
 		if(x < 0 || y < 0 || x >= width || y >= height) return Tile.voidTile;
-		if(tiles[x + y * width] == Tile.col_spawn_floor) return Tile.spawnFloorTile;
-		if(tiles[x + y * width] == Tile.col_spawn_grass) return Tile.spawnGrassTile;
-		if(tiles[x + y * width] == Tile.col_spawn_hedge) return Tile.spawnHedgeTile;
-		if(tiles[x + y * width] == Tile.col_spawn_wall1) return Tile.spawnWall1Tile;
-		if(tiles[x + y * width] == Tile.col_spawn_wall2) return Tile.spawnWall2Tile;
-		if(tiles[x + y * width] == Tile.col_spawn_water) return Tile.spawnWaterTile;		
+		if(tiles[x + y * width] == Tile.col_grass) return Tile.grass;
+		if(tiles[x + y * width] == Tile.col_brick_wall) return Tile.brick_wall;
+		if(tiles[x + y * width] == Tile.col_mossy_brick) return Tile.mossy_brick;
+		if(tiles[x + y * width] == Tile.col_water) return Tile.water;
+		if(tiles[x + y * width] == Tile.col_spawn) return Tile.spawner;
 		
 		return Tile.voidTile;
+	}
+	
+	public TileCoordinate getSpawn() {
+		for(int y = 0; y < height; y++) {
+			for(int x = 0; x < width; x++) {
+				if(getTile(x, y) == Tile.spawner) {
+					return new TileCoordinate(x, y);
+				}
+			}
+		}
+		return new TileCoordinate(0, 0);
 	}
 	
 	public int[] getTiles() {
