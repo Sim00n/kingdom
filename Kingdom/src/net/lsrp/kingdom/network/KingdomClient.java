@@ -121,7 +121,7 @@ public class KingdomClient {
 			Chat.addToChat(createChatMessage("Connecting to " + KingdomClient.IP + ":" + KingdomClient.PORT + " ..."));
 			client.connect(5000, KingdomClient.IP, KingdomClient.PORT, KingdomClient.PORT);
 		} catch (IOException e) {
-			e.printStackTrace();
+			//e.printStackTrace();
 			try {
 				KingdomClient.IP = "127.0.0.1";
 				KingdomClient.PORT = 54555;

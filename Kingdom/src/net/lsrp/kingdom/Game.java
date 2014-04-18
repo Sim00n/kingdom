@@ -174,7 +174,7 @@ public class Game extends Canvas implements Runnable {
 		Graphics g = bs.getDrawGraphics();
 		g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
 		g.setColor(Color.WHITE);
-		g.setFont(new Font("Verdana", 0, 15));
+		g.setFont(new Font("Verdana", 0, 11+scale));
 		
 		// Print debug info
 		g.drawString("Player X: " + player.x + " ("+player.x/16 +")" + ", Y: " + player.y + " (" + player.y/16 + ")", 10, 20);
@@ -182,13 +182,14 @@ public class Game extends Canvas implements Runnable {
 		g.drawString("Tiles: " + Level.level.getTiles().length, 10, 60);
 		
 		// Render player name
-		g.drawString(username, player.x - Screen.xOffset + 280 - username.length(), player.y - Screen.yOffset + 92);
+		//g.drawString(username, player.x - Screen.xOffset + (getWidth()/10)*3 - username.length(), player.y - Screen.yOffset + (getHeight()/10)*2);
+		g.drawString(username, (player.x - Screen.xOffset)*scale - username.length()*4, (player.y - Screen.yOffset)*scale - 22*scale);
 		
 		// Render enemy names
 		for(Enemy e : Enemy.enemies) {
 			if(e != null) {
-				int xp = (Game.width * 3)/2 - (player.x - e.x)*3 - 20 - e.getName().length();
-				int yp = (Game.height * 3)/2 - (player.y - e.y)*3 - 70;
+				int xp = (Game.width * scale)/2 - (player.x - e.x)*scale - e.getName().length()*4;
+				int yp = (Game.height * scale)/2 - (player.y - e.y)*scale - (22*scale);
 				g.drawString(e.getName(), xp, yp);
 			}
 		}
