@@ -1,7 +1,7 @@
 Kingdom
 =======
 
-Testing and dicking around with java and networking.
+Testing and messing around with java and networking.
 The game is made following a tutorial by TheCherno.
 Networking, chats, server, etc. done solely by me and probably breaking every rule of organized, clean programming. Oh well ... gotta learn somehow.
 
