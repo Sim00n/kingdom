@@ -11,7 +11,10 @@ Networking, chats, server, etc. done solely by me and probably breaking every ru
 
 Progress
 -----------------------------------------------------------------------------
-
+#####Update #3
+Just adding a screenshot 
+http://i.imgur.com/LQeRfK1.png
+<hr>
 #####Update #2
 I think I have figured out basic networking and how to send stuff back and forth. I also added projectiles, basic particles, some chat functionality and cleaned up the code a tiny bit. There's a lot of work to do but I'm slowly moving forward. What's next? Better particles, better animation sync, >>better collisions<<, some path finding maybe in the long run? I want to finally switch movement from the keyboard to the mouse so I can play with different skills/spells.
 <hr>
